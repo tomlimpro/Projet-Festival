@@ -1,0 +1,29 @@
+﻿<Page x:Class="wpfFestival.pageOrganisateur"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:wpfFestival"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Organisateur">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/Bouton image/Background.jpg">
+                <ImageBrush.RelativeTransform>
+                    <TransformGroup>
+                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                        <RotateTransform Angle="-90" CenterY="0.5" CenterX="0.5"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ImageBrush.RelativeTransform>
+            </ImageBrush>
+        </Grid.Background>
+        <Button HorizontalAlignment="Left" Height="130" Margin="34,0,0,0" VerticalAlignment="Center" Width="200" Click="BtnAddOrganisateur"/>
+        <Button HorizontalAlignment="Center" Height="130" VerticalAlignment="Center" Width="200" Click="BtnUpdateOrganisateur"/>
+        <Button HorizontalAlignment="Left" Height="130" Margin="557,0,0,0" VerticalAlignment="Center" Width="200" Click="BtnDeleteOrganisateur"/>
+
+    </Grid>
+</Page>

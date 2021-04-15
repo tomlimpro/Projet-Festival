@@ -1,0 +1,34 @@
+﻿<Page x:Class="wpfFestival.updateFestival"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:wpfFestival"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="updateFestival">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/Bouton image/Background.jpg">
+                <ImageBrush.RelativeTransform>
+                    <TransformGroup>
+                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                        <RotateTransform Angle="-90" CenterY="0.5" CenterX="0.5"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ImageBrush.RelativeTransform>
+            </ImageBrush>
+        </Grid.Background>
+        <ListBox x:Name="LbFestivals" HorizontalAlignment="Left" Height="370" Margin="543,0,0,0" VerticalAlignment="Center" Width="207" SelectionChanged="LbFestivals_SelectionChanged"/>
+        <StackPanel HorizontalAlignment="Left" Height="185" Margin="139,115,0,0" VerticalAlignment="Top" Width="194">
+            <Label Content="Nom du festival :"/>
+            <TextBox Name="nomFestivalBox" TextWrapping="Wrap" Width="120"/>
+            <Label Content="Lieu :"/>
+            <TextBox Name="lieuFestivalBox" TextWrapping="Wrap" Width="120"/>
+        </StackPanel>
+        <Button Content="Modifier" HorizontalAlignment="Left" Margin="262,254,0,0" VerticalAlignment="Top" Height="28" Width="62" Click="Button_Click"/>
+
+    </Grid>
+</Page>

@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\Bouton image\Background.jpg" />
+    <None Remove="Images\Bouton image\Festival.png" />
+    <None Remove="Images\Bouton image\Organisateur.png" />
+    <None Remove="Images\Bouton image\retour.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FestivalAPI\FestivalAPI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Bouton image\Background.jpg" />
+    <Resource Include="Images\Bouton image\Festival.png" />
+    <Resource Include="Images\Bouton image\Organisateur.png" />
+    <Resource Include="Images\Bouton image\retour.png" />
+  </ItemGroup>
+
+</Project>

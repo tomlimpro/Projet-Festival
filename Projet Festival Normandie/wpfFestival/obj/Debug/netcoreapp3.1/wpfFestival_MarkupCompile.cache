@@ -1,0 +1,20 @@
+﻿wpfFestival
+
+
+winexe
+C#
+.cs
+C:\Users\tomli\source\repos\Projet Festival Normandie\wpfFestival\obj\Debug\netcoreapp3.1\
+wpfFestival
+none
+false
+TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
+C:\Users\tomli\source\repos\Projet Festival Normandie\wpfFestival\App.xaml
+1059993315
+
+131706134381
+364502870201
+addFestival.xaml;addOrganisateur.xaml;deleteFestival.xaml;deleteOrganisateur.xaml;MainWindow.xaml;Menu.xaml;pageFestival.xaml;pageOrganisateur.xaml;updateFestival.xaml;updateOrganisateur.xaml;
+
+False
+
