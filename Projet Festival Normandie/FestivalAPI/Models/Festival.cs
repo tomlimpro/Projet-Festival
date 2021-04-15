@@ -16,6 +16,8 @@ namespace FestivalAPI.Models
         public string Nom_Festival { get; set; }
         public string Lieu { get; set; }
 
+        public string Description { get; set; }
+        public string Logo { get; set; }
        
         public virtual ICollection<Organisateur> Organisateurs { get; set; }
 

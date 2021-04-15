@@ -28,14 +28,14 @@ namespace wpfFestival
             ListeFestivals = API.Instance.GetFestival().Result;
             foreach (Festival festival in ListeFestivals)
             {
-                LbNomFestivals.Items.Add(festival.Nom_Festival + " " + festival.Lieu);
+                LbNomFestivals.Items.Add(festival.Nom_Festival + " " + festival.Lieu + " " + festival.Description);
                 
             }
         }
 
         private void Btnadd(object sender, RoutedEventArgs e)
         {
-            if(nomFestivalbox.Text.Length >= 3 && lieuFestivalbox.Text.Length >= 3)
+            if(nomFestivalbox.Text.Length >= 3 && lieuFestivalbox.Text.Length >= 3 && descriptionFestivalbox.Text.Length >= 3)
             {
                 Festival vide = API.Instance.GetFestival(nomFestivalbox.Text, lieuFestivalbox.Text).Result;
                 if(vide == null)
@@ -43,6 +43,7 @@ namespace wpfFestival
                     Festival festival = new Festival();
                     festival.Nom_Festival = nomFestivalbox.Text;
                     festival.Lieu = lieuFestivalbox.Text;
+                    festival.Description = descriptionFestivalbox.Text;
                     _ = API.Instance.AjoutFestival(festival);
                     MessageBox.Show("Festival ajouté avec succès !","Enregistrement effectué" ,MessageBoxButton.OK, MessageBoxImage.Information);
                     addFestival addfesti = new addFestival();

@@ -3,14 +3,16 @@ using FestivalAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FestivalAPI.Migrations
 {
     [DbContext(typeof(FestivalAPIContext))]
-    partial class FestivalAPIContextModelSnapshot : ModelSnapshot
+    [Migration("20210415135118_est")]
+    partial class est
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

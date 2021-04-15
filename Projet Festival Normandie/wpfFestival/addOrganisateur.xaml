@@ -21,16 +21,16 @@
                 </ImageBrush.RelativeTransform>
             </ImageBrush>
         </Grid.Background>
-        <StackPanel HorizontalAlignment="Left" Height="284" Margin="70,0,0,0" VerticalAlignment="Center" Width="180">
-            <Label Content="_Prénom"/>
+        <StackPanel HorizontalAlignment="Left" Height="308" Margin="50,91,0,0" VerticalAlignment="Top" Width="198">
+            <TextBlock Text="Prénom" FontSize="16" FontWeight="Bold"/>
             <TextBox Name="PrenomBox" TextWrapping="Wrap" Width="120"/>
-            <Label Content="_Nom"/>
+            <TextBlock Text="Nom" FontSize="16" FontWeight="Bold"/>
             <TextBox Name="NomBox" TextWrapping="Wrap" Width="120"/>
-            <Label Content="_Email"/>
+            <TextBlock Text="Email" FontSize="16" FontWeight="Bold"/>
             <TextBox Name="EmailBox" TextWrapping="Wrap" Width="120"/>
-            <Label Content="_Mot de passe"/>
+            <TextBlock Text="Mot de passe" FontSize="16" FontWeight="Bold"/>
             <TextBox Name="MdpBox" TextWrapping="Wrap" Width="120"/>
-            <Label Content="Id du festival"/>
+            <TextBlock Text="Id du festival" FontSize="16" FontWeight="Bold"/>
             <TextBox Name="idfestivalbox" TextWrapping="Wrap" Width="120"/>
             <Button Content="Ajouter" Height="22" Width="61" Click="BtnAddOrga"/>
         </StackPanel>

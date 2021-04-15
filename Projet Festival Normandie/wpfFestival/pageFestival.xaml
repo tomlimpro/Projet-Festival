@@ -21,9 +21,21 @@
                 </ImageBrush.RelativeTransform>
             </ImageBrush>
         </Grid.Background>
-        <Button HorizontalAlignment="Left" Height="90" Margin="110,35,0,0" VerticalAlignment="Top" Width="170" Click="btnAddFesti"/>
-        <Button HorizontalAlignment="Left" Height="90" VerticalAlignment="Top" Width="170" Click="updateFesti" Margin="110,168,0,0"/>
-        <Button HorizontalAlignment="Left" Height="90" Margin="110,304,0,0" VerticalAlignment="Top" Width="170" Click="deleteFesti"/>
+        <Button HorizontalAlignment="Left" Height="117" Margin="110,22,0,0" VerticalAlignment="Top" Width="170" Click="btnAddFesti">
+            <Button.Background>
+                <ImageBrush ImageSource="/Ajouter.png"/>
+            </Button.Background>
+        </Button>
+        <Button HorizontalAlignment="Left" Height="117" VerticalAlignment="Top" Width="170" Click="updateFesti" Margin="110,156,0,0">
+            <Button.Background>
+                <ImageBrush ImageSource="/Modifier.png"/>
+            </Button.Background>
+        </Button>
+        <Button HorizontalAlignment="Left" Height="117" Margin="110,293,0,0" VerticalAlignment="Top" Width="170" Click="deleteFesti">
+            <Button.Background>
+                <ImageBrush ImageSource="/Supprimer.png"/>
+            </Button.Background>
+        </Button>
         <DataGrid x:Name ="dgFestival"  HorizontalAlignment="Left" Height="268" Margin="400,53,0,0" VerticalAlignment="Top" Width="333">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nom du Festival" Binding="{Binding Nom_Festival}"/>

@@ -25,15 +25,17 @@
                 </ImageBrush.RelativeTransform>
             </ImageBrush>
         </Grid.Background>
-        <StackPanel HorizontalAlignment="Left" Height="149" Margin="54,53,0,0" VerticalAlignment="Top" Width="244" Grid.ColumnSpan="2">
-            <Label Content="_Nom du festival:" Target="{Binding ElementName = nomFestivalbox}" />
-            <TextBox Name="nomFestivalbox"></TextBox>
-            <Label Content="_Lieu du festival:" Target="{Binding ElementName = lieuFestivalbox}" />
-            <TextBox Name="lieuFestivalbox"></TextBox>
+        <StackPanel HorizontalAlignment="Left" Height="307" Margin="54,53,0,0" VerticalAlignment="Top" Width="268" Grid.ColumnSpan="2">
+            <TextBlock Text ="Nom du festival:" FontSize="16" FontWeight="Bold"  />
+            <TextBox Name="nomFestivalbox" Width="184"></TextBox>
+            <TextBlock Text="Lieu du festival:" FontSize="16" FontWeight="Bold"  />
+            <TextBox Name="lieuFestivalbox" Width="184"></TextBox>
+            <TextBlock Text="Description" FontSize="16" FontWeight="Bold"/>
+            <TextBox Name="descriptionFestivalbox"  TextWrapping="Wrap" Width="244" Height="117"/>
             <Button Content="Ajouter" Height="19" Width="54" Click="Btnadd"/>
 
 
         </StackPanel>
-        <ListBox x:Name="LbNomFestivals" HorizontalAlignment="Left" Height="172" Margin="203,42,0,0" VerticalAlignment="Top" Width="284" Grid.Column="1" />
+        <ListBox x:Name="LbNomFestivals" HorizontalAlignment="Left" Height="172" Margin="329,53,0,0" VerticalAlignment="Top" Width="284" Grid.Column="1" />
     </Grid>
 </Page>

@@ -22,11 +22,13 @@
             </ImageBrush>
         </Grid.Background>
         <ListBox x:Name="LbFestivals" HorizontalAlignment="Left" Height="370" Margin="543,0,0,0" VerticalAlignment="Center" Width="207" SelectionChanged="LbFestivals_SelectionChanged"/>
-        <StackPanel HorizontalAlignment="Left" Height="185" Margin="139,115,0,0" VerticalAlignment="Top" Width="194">
-            <Label Content="Nom du festival :"/>
-            <TextBox Name="nomFestivalBox" TextWrapping="Wrap" Width="120"/>
-            <Label Content="Lieu :"/>
-            <TextBox Name="lieuFestivalBox" TextWrapping="Wrap" Width="120"/>
+        <StackPanel HorizontalAlignment="Left" Height="295" Margin="128,61,0,0" VerticalAlignment="Top" Width="261">
+            <TextBlock Text="Nom du Festival" TextWrapping="Wrap" FontSize="16" FontWeight="Bold"/>
+            <TextBox x:Name="nomFestivalBox" TextWrapping="Wrap" Width="127" Height="25"/>
+            <TextBlock Text="Lieu du festival" TextWrapping="Wrap" FontSize="16" FontWeight="Bold"/>
+            <TextBox x:Name="lieuFestivalBox" TextWrapping="Wrap" Width="127" Height="25"/>
+            <TextBlock Text="Description" TextWrapping="Wrap" FontSize="16" FontWeight="Bold"/>
+            <TextBox x:Name="descriptionFestivalBox"  TextWrapping="Wrap" Width="206" Height="78"/>
         </StackPanel>
         <Button Content="Modifier" HorizontalAlignment="Left" Margin="262,254,0,0" VerticalAlignment="Top" Height="28" Width="62" Click="Button_Click"/>
 

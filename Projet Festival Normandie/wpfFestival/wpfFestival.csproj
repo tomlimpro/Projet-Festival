@@ -7,10 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Ajouter.png" />
+    <None Remove="Ajouterunorga.png" />
     <None Remove="Images\Bouton image\Background.jpg" />
     <None Remove="Images\Bouton image\Festival.png" />
     <None Remove="Images\Bouton image\Organisateur.png" />
     <None Remove="Images\Bouton image\retour.png" />
+    <None Remove="Modifier.png" />
+    <None Remove="Modifierunorga.png" />
+    <None Remove="Supprimer.png" />
+    <None Remove="supprimerunorga.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,10 +28,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Ajouter.png" />
+    <Resource Include="Ajouterunorga.png" />
     <Resource Include="Images\Bouton image\Background.jpg" />
     <Resource Include="Images\Bouton image\Festival.png" />
     <Resource Include="Images\Bouton image\Organisateur.png" />
     <Resource Include="Images\Bouton image\retour.png" />
+    <Resource Include="Modifier.png" />
+    <Resource Include="Modifierunorga.png" />
+    <Resource Include="Supprimer.png" />
+    <Resource Include="supprimerunorga.png" />
   </ItemGroup>
 
 </Project>
