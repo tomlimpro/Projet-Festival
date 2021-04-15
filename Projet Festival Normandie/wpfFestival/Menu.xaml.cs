@@ -22,12 +22,13 @@ namespace wpfFestival
         {
             InitializeComponent();
         }
+        // Lorsqu'on appuie sur le bouton BtnOrganisateur_Clik, on se dirige vers la page Organisateur
         private void BtnOrganisateur_Click(object sender, RoutedEventArgs e)
         {
             pageOrganisateur orga = new pageOrganisateur();
             this.NavigationService.Navigate(orga);
         }
-
+        // Lorsqu'on appuie sur le Button_Click, on se dirige vers la page Festival
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             pageFestival pagefestival = new pageFestival();
