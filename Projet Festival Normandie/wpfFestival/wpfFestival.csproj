@@ -9,12 +9,15 @@
   <ItemGroup>
     <None Remove="Ajouter.png" />
     <None Remove="Ajouterunorga.png" />
-    <None Remove="Images\Bouton image\Background.jpg" />
-    <None Remove="Images\Bouton image\Festival.png" />
-    <None Remove="Images\Bouton image\Organisateur.png" />
-    <None Remove="Images\Bouton image\retour.png" />
+    <None Remove="Background.jpg" />
+    <None Remove="Festival.png" />
+    <None Remove="Images\Boutonimage\Background.jpg" />
+    <None Remove="Images\Boutonimage\Festival.png" />
+    <None Remove="Images\Boutonimage\Organisateur.png" />
+    <None Remove="Images\Boutonimage\retour.png" />
     <None Remove="Modifier.png" />
     <None Remove="Modifierunorga.png" />
+    <None Remove="Organisateur.png" />
     <None Remove="Supprimer.png" />
     <None Remove="supprimerunorga.png" />
   </ItemGroup>
@@ -30,12 +33,15 @@
   <ItemGroup>
     <Resource Include="Ajouter.png" />
     <Resource Include="Ajouterunorga.png" />
-    <Resource Include="Images\Bouton image\Background.jpg" />
-    <Resource Include="Images\Bouton image\Festival.png" />
-    <Resource Include="Images\Bouton image\Organisateur.png" />
-    <Resource Include="Images\Bouton image\retour.png" />
+    <Resource Include="Background.jpg" />
+    <Resource Include="Festival.png" />
+    <Resource Include="Images\Boutonimage\Background.jpg" />
+    <Resource Include="Images\Boutonimage\Festival.png" />
+    <Resource Include="Images\Boutonimage\Organisateur.png" />
+    <Resource Include="Images\Boutonimage\retour.png" />
     <Resource Include="Modifier.png" />
     <Resource Include="Modifierunorga.png" />
+    <Resource Include="Organisateur.png" />
     <Resource Include="Supprimer.png" />
     <Resource Include="supprimerunorga.png" />
   </ItemGroup>

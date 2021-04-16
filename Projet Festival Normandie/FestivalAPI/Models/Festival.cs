@@ -5,6 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
+/// <summary>
+/// Class Festival 
+/// Clé primaire est FestivalId
+/// On remarquera qu'un festival possède des organisateurs.
+/// </summary>
 namespace FestivalAPI.Models
 {
     public class Festival

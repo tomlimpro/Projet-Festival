@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Images/Bouton image/Background.jpg">
+            <ImageBrush ImageSource="/Background.jpg">
                 <ImageBrush.RelativeTransform>
                     <TransformGroup>
                         <ScaleTransform CenterY="0.5" CenterX="0.5"/>
@@ -21,7 +21,7 @@
                 </ImageBrush.RelativeTransform>
             </ImageBrush>
         </Grid.Background>
-        <StackPanel HorizontalAlignment="Left" Height="308" Margin="50,91,0,0" VerticalAlignment="Top" Width="198">
+        <StackPanel HorizontalAlignment="Left" Height="228" Margin="49,49,0,0" VerticalAlignment="Top" Width="198">
             <TextBlock Text="Prénom" FontSize="16" FontWeight="Bold"/>
             <TextBox Name="PrenomBox" TextWrapping="Wrap" Width="120"/>
             <TextBlock Text="Nom" FontSize="16" FontWeight="Bold"/>
@@ -36,6 +36,9 @@
         </StackPanel>
         <ListBox x:Name="lbOrganisateur" HorizontalAlignment="Center" Height="330" Margin="0,49,0,0" VerticalAlignment="Top" Width="178"/>
         <ListBox x:Name="LbFestivals" HorizontalAlignment="Left" Height="330" Margin="557,49,0,0" VerticalAlignment="Top" Width="178"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="75" Margin="24,282,0,0" Stroke="Black" VerticalAlignment="Top" Width="248"/>
+        <TextBlock HorizontalAlignment="Left" Height="23" Margin="36,292,0,0" Text="1. Renseignez les valeurs dans les champs" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="36,322,0,0" Text="2. Appuyez sur le boutton ajouter." TextWrapping="Wrap" VerticalAlignment="Top" Width="211"/>
 
     </Grid>
 </Page>

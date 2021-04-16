@@ -33,6 +33,10 @@ namespace wpfFestival
             }
         }
 
+        // On utilise la variable qu'on a récupéré au moment du click dans la list.
+        // On recherche dans notre base de données les informations de ce festival
+        // On récupère l'id.
+        // On l'a supprime de la base de données grâce à l'id.
         private void BtnDelete(object sender, RoutedEventArgs e)
         {
             var festi = API.Instance.GetFestival(nomfesti).Result;
@@ -47,7 +51,8 @@ namespace wpfFestival
 
            
         }
-
+        // On selectionne le festival qu'on veut supprimer et on insère dans une variable la valeur.
+        // Cette valeur sera utilisé pour rechercher notre festival dans base de données.
         private void LbNomFestivals_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             nomfesti = LbNomFestivals.SelectedItem.ToString(); 

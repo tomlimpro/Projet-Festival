@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="Images/Bouton image/Background.jpg">
+            <ImageBrush ImageSource="/Background.jpg">
                 <ImageBrush.RelativeTransform>
                     <TransformGroup>
                         <ScaleTransform CenterY="0.5" CenterX="0.5"/>
@@ -24,15 +24,16 @@
 
         <Button x:Name="BtnOrganisateur" HorizontalAlignment="Left" Margin="92,94,0,0" VerticalAlignment="Top" Width="255" Height="244" Click="BtnOrganisateur_Click">
             <Button.Background>
-                <ImageBrush ImageSource="Images/Bouton image/Organisateur.png"/>
+                <ImageBrush ImageSource="/Organisateur.png"/>
             </Button.Background>
 
 
         </Button>
         <Button  HorizontalAlignment="Left" Margin="461,94,0,0" VerticalAlignment="Top" Width="255" Height="244" Click="Button_Click">
             <Button.Background>
-                <ImageBrush ImageSource="Images/Bouton image/Festival.png"/>
+                <ImageBrush ImageSource="/Festival.png"/>
             </Button.Background>
+
         </Button>
     </Grid>
 </Page>

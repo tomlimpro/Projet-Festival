@@ -37,6 +37,7 @@ namespace wpfFestival.ControllersAPI
             }
         }
         /**************************************** Festival **************************************/
+        // GetFestival permet de récupérer toutes les données de la table Festival
         public async Task<ICollection<Festival>> GetFestival()
         {
             ICollection<Festival> Festival = new List<Festival>();
@@ -48,7 +49,8 @@ namespace wpfFestival.ControllersAPI
             }
             return Festival;
         }
-
+        
+        // Même méthode mais on recherche en insérant  le nom du festival
         public async Task<Festival> GetFestival(string nom_festival)
         {
             Festival festi = null;
@@ -61,8 +63,7 @@ namespace wpfFestival.ControllersAPI
             return festi;
         }
 
-
-
+        // Même méthode mais en renseignant le nom du festival puis le lieu.
         public async Task<Festival> GetFestival(string? Nom_Festival, string? Lieu)
         {
             Festival Festival = null;
@@ -74,6 +75,8 @@ namespace wpfFestival.ControllersAPI
             }
             return Festival;
         }
+        // AjoutFestival permet d'ajouter une ligne dans notre table festival.
+        // Tous les attributs doivent être renseigné dans la méthode.
         public async Task<Uri> AjoutFestival(Festival festival)
         {
             try
@@ -89,9 +92,8 @@ namespace wpfFestival.ControllersAPI
             return null;
         }
 
-
-
-
+        // ModifierFestival permet de modifier une ligne dans la table Festival
+        // Tous les informations doivent être renseigné.
         public async Task<Uri> ModifierFestival(Festival festival)
         {
             try
@@ -108,7 +110,8 @@ namespace wpfFestival.ControllersAPI
             return null;
         }
 
-
+        // DeleteFestival supprime une ligne dans la table Festival
+        // On utilise l'id d'un festival pour supprimer.
         public async Task<Uri> DeleteFestival(int id)
         {
             try

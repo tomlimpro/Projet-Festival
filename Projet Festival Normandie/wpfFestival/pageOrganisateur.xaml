@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Images/Bouton image/Background.jpg">
+            <ImageBrush ImageSource="/Background.jpg">
                 <ImageBrush.RelativeTransform>
                     <TransformGroup>
                         <ScaleTransform CenterY="0.5" CenterX="0.5"/>
@@ -23,18 +23,21 @@
         </Grid.Background>
         <Button HorizontalAlignment="Left" Height="200" Margin="34,0,0,0" VerticalAlignment="Center" Width="200" Click="BtnAddOrganisateur">
             <Button.Background>
-                <ImageBrush ImageSource="/Ajouterunorga.png" Stretch="Fill" Opacity="1"/>
+                <ImageBrush ImageSource="/Ajouterunorga.png"/>
             </Button.Background>
+
         </Button>
         <Button HorizontalAlignment="Center" Height="200" VerticalAlignment="Center" Width="200" Click="BtnUpdateOrganisateur">
             <Button.Background>
                 <ImageBrush ImageSource="/Modifierunorga.png"/>
             </Button.Background>
+
         </Button>
         <Button HorizontalAlignment="Left" Height="200" Margin="557,0,0,0" VerticalAlignment="Center" Width="200" Click="BtnDeleteOrganisateur">
             <Button.Background>
                 <ImageBrush ImageSource="/supprimerunorga.png"/>
             </Button.Background>
+
         </Button>
 
     </Grid>

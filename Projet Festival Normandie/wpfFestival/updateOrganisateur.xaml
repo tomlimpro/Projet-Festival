@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Images/Bouton image/Background.jpg">
+            <ImageBrush ImageSource="/Background.jpg">
                 <ImageBrush.RelativeTransform>
                     <TransformGroup>
                         <ScaleTransform CenterY="0.5" CenterX="0.5"/>
@@ -21,7 +21,7 @@
                 </ImageBrush.RelativeTransform>
             </ImageBrush>
         </Grid.Background>
-        <StackPanel HorizontalAlignment="Left" Height="283" Margin="29,86,0,0" VerticalAlignment="Top" Width="277">
+        <StackPanel HorizontalAlignment="Left" Height="236" Margin="10,10,0,0" VerticalAlignment="Top" Width="277">
             <TextBlock Text="Modifier Prénom" FontSize="16" FontWeight="Bold"/>
             <TextBox Name="updatePrenomBox" TextWrapping="Wrap" Width="120"/>
             <TextBlock Text="Modifier Nom" FontSize="16" FontWeight="Bold"/>
@@ -32,10 +32,14 @@
             <TextBox Name="updateMdpBox" TextWrapping="Wrap" Width="120"/>
             <TextBlock Text="Modifier l'attribution du festival" FontSize="16" FontWeight="Bold"/>
             <TextBox Name="updateIdFestivalBox" TextWrapping="Wrap" Width="120"/>
-            <Button Content="Update" Width="68" Click="BtnUpdateOrga"/>
+            <Button Content="Mettre à jour" Width="83" Click="BtnUpdateOrga"/>
         </StackPanel>
         <ListBox x:Name="LbOrganisateur" HorizontalAlignment="Left" Height="308" Margin="335,61,0,0" VerticalAlignment="Top" Width="192" SelectionChanged="LbOrganisateur_SelectionChanged"/>
         <ListBox x:Name="LbFestival" HorizontalAlignment="Left" Height="308" Margin="565,61,0,0" VerticalAlignment="Top" Width="192"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="113" Margin="10,240,0,0" Stroke="Black" VerticalAlignment="Top" Width="277"/>
+        <TextBlock HorizontalAlignment="Left" Height="19" Margin="17,251,0,0" Text="1. Selectionnez l'organisateur à modifier." TextWrapping="Wrap" VerticalAlignment="Top" Width="237"/>
+        <TextBlock HorizontalAlignment="Left" Height="16" Margin="17,281,0,0" Text="2. Modifiez les informations dans les champs." TextWrapping="Wrap" VerticalAlignment="Top" Width="251"/>
+        <TextBlock HorizontalAlignment="Left" Height="20" Margin="17,317,0,0" Text="3. Appuyez sur le boutton Mettre à jour." TextWrapping="Wrap" VerticalAlignment="Top" Width="237"/>
 
     </Grid>
 </Page>

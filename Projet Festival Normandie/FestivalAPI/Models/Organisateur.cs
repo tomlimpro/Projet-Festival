@@ -4,7 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
-
+/// <summary>
+/// Class Organisateur
+/// La clé primaire est IdOrganisateur
+/// Un organisateur est affecté à un festival.
+/// </summary>
 namespace FestivalAPI.Models
 {
     public class Organisateur

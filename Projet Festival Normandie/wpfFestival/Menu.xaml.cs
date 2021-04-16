@@ -22,6 +22,7 @@ namespace wpfFestival
         {
             InitializeComponent();
         }
+        
         private void BtnOrganisateur_Click(object sender, RoutedEventArgs e)
         {
             pageOrganisateur orga = new pageOrganisateur();

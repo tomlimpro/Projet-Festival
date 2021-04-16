@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Images/Bouton image/Background.jpg">
+            <ImageBrush ImageSource="/Background.jpg">
                 <ImageBrush.RelativeTransform>
                     <TransformGroup>
                         <ScaleTransform CenterY="0.5" CenterX="0.5"/>
@@ -21,8 +21,11 @@
                 </ImageBrush.RelativeTransform>
             </ImageBrush>
         </Grid.Background>
-        <ListBox x:Name="LbOrganisateur" HorizontalAlignment="Left" Height="316" Margin="491,0,0,0" VerticalAlignment="Center" Width="178" SelectionChanged="LbOrganisateur_SelectionChanged"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Height="49" Margin="303,128,0,0" VerticalAlignment="Top" Width="97" Click="BtnDeleteOrga"/>
+        <ListBox x:Name="LbOrganisateur" HorizontalAlignment="Left" Height="316" Margin="441,0,0,0" VerticalAlignment="Center" Width="178" SelectionChanged="LbOrganisateur_SelectionChanged"/>
+        <Button Content="Supprimer" HorizontalAlignment="Left" Height="49" Margin="200,300,0,0" VerticalAlignment="Top" Width="97" Click="BtnDeleteOrga"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="105" Margin="56,107,0,0" Stroke="Black" VerticalAlignment="Top" Width="361"/>
+        <TextBlock HorizontalAlignment="Left" Height="27" Margin="85,125,0,0" Text="1. Selectionnez l'organisateur à supprimer." TextWrapping="Wrap" VerticalAlignment="Top" Width="315"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="85,157,0,0" Text="2. Appuyez sur le boutton Supprimer pour l'enlever de la liste." TextWrapping="Wrap" VerticalAlignment="Top" Width="332"/>
 
     </Grid>
 </Page>
