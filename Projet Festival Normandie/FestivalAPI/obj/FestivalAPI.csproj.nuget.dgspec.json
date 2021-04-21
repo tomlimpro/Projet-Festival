@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj": {}
+    "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet_Festival_Normandie\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj": {
+    "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet_Festival_Normandie\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj",
+        "projectUniqueName": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet_Festival_Normandie\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj",
         "projectName": "FestivalAPI",
-        "projectPath": "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj",
-        "packagesPath": "C:\\Users\\tomli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\FestivalAPI\\obj\\",
+        "projectPath": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet_Festival_Normandie\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj",
+        "packagesPath": "C:\\Users\\emili\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet_Festival_Normandie\\Projet Festival Normandie\\FestivalAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tomli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\emili\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
