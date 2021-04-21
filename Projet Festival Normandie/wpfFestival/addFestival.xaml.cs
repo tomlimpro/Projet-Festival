@@ -30,7 +30,7 @@ namespace wpfFestival
             ListeFestivals = API.Instance.GetFestival().Result;
             foreach (Festival festival in ListeFestivals)
             {
-                LbNomFestivals.Items.Add(festival.Nom_Festival + " " + festival.Lieu + " " + festival.Description);
+                LbNomFestivals.Items.Add(festival.Nom_Festival + " " + festival.Ville + " " + festival.Description);
                 
             }
         }
@@ -47,7 +47,7 @@ namespace wpfFestival
                     Festival festival = new Festival();
                     // Les informations qu'on récupère dans nos TextBox sont save dans festival.
                     festival.Nom_Festival = nomFestivalbox.Text;
-                    festival.Lieu = lieuFestivalbox.Text;
+                    festival.Ville = lieuFestivalbox.Text;
                     festival.Description = descriptionFestivalbox.Text;
                     festival.Logo = pathLogoBox.Text;
                     // On ajoute ces données dans notre bdd.

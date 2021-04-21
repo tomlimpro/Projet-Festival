@@ -40,9 +40,15 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.ExtraitMusical_Artiste)
         </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Scene)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Scene.SceneID)
+        </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.ArtisteId">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model.ArtisteID">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

@@ -1,0 +1,58 @@
+﻿@model FestivalAPI.Models.FestivalData
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nom de la scène</th>
+            <th>Capacité</th>
+            <th>Accessibilité</th>
+            <th>Artistes</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Scenes)
+        {
+            string selectedRow = "";
+            if (item.SceneID == (int?)ViewData["SceneID"])
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom_Scene)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Capacite)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Accessibilite)
+                </td>
+
+                <td>
+                    @foreach (var artiste in item.Artistes)
+                    {
+                        @artiste.Nom_Artiste <br />
+                    }
+                </td>
+
+                <td>
+                    <a asp-action="Index" asp-route-id="@item.FestivalID">Select</a> |
+                    <a asp-action="Edit" asp-route-id="@item.FestivalID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.FestivalID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.FestivalID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>

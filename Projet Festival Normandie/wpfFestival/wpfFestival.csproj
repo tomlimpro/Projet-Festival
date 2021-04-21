@@ -19,7 +19,7 @@
     <None Remove="Modifierunorga.png" />
     <None Remove="Organisateur.png" />
     <None Remove="Supprimer.png" />
-    <None Remove="supprimerunorga.png" />
+    <None Remove="Supprimerorga.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,7 +43,7 @@
     <Resource Include="Modifierunorga.png" />
     <Resource Include="Organisateur.png" />
     <Resource Include="Supprimer.png" />
-    <Resource Include="supprimerunorga.png" />
+    <Resource Include="Supprimerorga.png" />
   </ItemGroup>
 
 </Project>

@@ -38,7 +38,7 @@ namespace wpfFestival
             var orga = API.Instance.GetOrganisateur(Emailorga).Result;
 
 
-            _ = API.Instance.DeleteOrganisateur(orga.IdOrganisateur);
+            _ = API.Instance.DeleteOrganisateur(orga.OrganisateurID);
 
             MessageBox.Show("Organisateur supprimé avec succès !", "Enregistrement effectué", MessageBoxButton.OK, MessageBoxImage.Information);
 

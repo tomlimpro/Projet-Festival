@@ -42,7 +42,7 @@ namespace wpfFestival
             var festi = API.Instance.GetFestival(nomfesti).Result;
             
                       
-            _ = API.Instance.DeleteFestival(festi.FestivalId);
+            _ = API.Instance.DeleteFestival(festi.FestivalID);
 
             MessageBox.Show("Festival supprimé avec succès !", "Enregistrement effectué", MessageBoxButton.OK, MessageBoxImage.Information);
             

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FestivalAPI.Models.Festival>
+﻿@model FestivalAPI.Models.FestivalData
 
 @{
     ViewData["Title"] = "Index";
@@ -6,36 +6,96 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nom_Festival)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Lieu)
-            </th>
-            <th></th>
+            <th>Nom du festival</th>
+            <th>Ville</th>
+            <th>Date début</th>
+            <th>Date fin</th>
+            <th>Organisateurs</th>
+            <th>Scenes</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nom_Festival)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Lieu)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.FestivalId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.FestivalId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FestivalId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Festi)
+        {
+            string selectedRow = "";
+            if (item.FestivalID == (int?)ViewData["FestivalID"])
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom_Festival)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ville)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateDebut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateFin)
+                </td>
+                <td>
+                    @foreach (var orga in item.Organisateur)
+                    {
+                        @orga.Prenom <br />
+                    }
+                </td>
+                <td>
+                    @foreach (var scene in item.Scene)
+                    {
+                        @scene.Nom_Scene
+                    }
+                </td>
+
+                <td>
+                    <a asp-action="Index" asp-route-id="@item.FestivalID">Select</a> |
+                    <a asp-action="Edit" asp-route-id="@item.FestivalID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.FestivalID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.FestivalID">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@if (Model.Scenes != null)
+{
+    <h3>Liste des scènes avec les artistes</h3>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Nom de la scène</th>
+            <th>Artistes</th>
+        </tr>
+        @foreach (var item in Model.Scenes)
+        {
+            string selectedRow = "";
+            if (item.SceneID == (int?)ViewData["SceneID"])
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.ActionLink("Select", "Index", new { sceneID = item.SceneID })
+                </td>
+                <td>
+                    @item.Nom_Scene
+                </td>
+                <td>
+                    @foreach (var artiste in item.Artistes)
+                    {
+                        @artiste.Nom_Artiste
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+}

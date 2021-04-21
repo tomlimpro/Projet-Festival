@@ -23,16 +23,16 @@ namespace FestivalAPI.Controllers
 
         // GET: api/Festivals
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Festival>>> GetFestival()
+        public async Task<ActionResult<IEnumerable<Festival>>> GetFestivals()
         {
-            return await _context.Festival.Include("Organisateurs").ToListAsync();
+            return await _context.Festivals.ToListAsync();
         }
 
         // GET: api/Festivals/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Festival>> GetFestival(int id)
         {
-            var festival = await _context.Festival.FindAsync(id);
+            var festival = await _context.Festivals.FindAsync(id);
 
             if (festival == null)
             {
@@ -42,27 +42,27 @@ namespace FestivalAPI.Controllers
             return festival;
         }
 
-        // GET : api/Festivals/GetNomFestival
+        // GET: api/Festivals/5
         [HttpGet("GetNomFestival/{Nom_Festival}")]
         public async Task<ActionResult<Festival>> GetNomFestival(string nom_festival)
         {
-            var festival = await _context.Festival.FirstOrDefaultAsync(f => f.Nom_Festival.Equals(nom_festival));
-            if(festival == null)
+            var festival = await _context.Festivals.FirstOrDefaultAsync(f => f.Nom_Festival.Equals(nom_festival));
+
+            if (festival == null)
             {
                 return NotFound();
             }
-            return festival;
 
-            
+            return festival;
         }
 
-
         // PUT: api/Festivals/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutFestival(int id, Festival festival)
         {
-            if (id != festival.FestivalId)
+            if (id != festival.FestivalID)
             {
                 return BadRequest();
             }
@@ -89,35 +89,36 @@ namespace FestivalAPI.Controllers
         }
 
         // POST: api/Festivals
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         public async Task<ActionResult<Festival>> PostFestival(Festival festival)
         {
-            _context.Festival.Add(festival);
+            _context.Festivals.Add(festival);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetFestival", new { id = festival.FestivalId }, festival);
+            return CreatedAtAction("GetFestival", new { id = festival.FestivalID }, festival);
         }
 
         // DELETE: api/Festivals/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteFestival(int id)
+        public async Task<ActionResult<Festival>> DeleteFestival(int id)
         {
-            var festival = await _context.Festival.FindAsync(id);
+            var festival = await _context.Festivals.FindAsync(id);
             if (festival == null)
             {
                 return NotFound();
             }
 
-            _context.Festival.Remove(festival);
+            _context.Festivals.Remove(festival);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return festival;
         }
 
         private bool FestivalExists(int id)
         {
-            return _context.Festival.Any(e => e.FestivalId == id);
+            return _context.Festivals.Any(e => e.FestivalID == id);
         }
     }
 }

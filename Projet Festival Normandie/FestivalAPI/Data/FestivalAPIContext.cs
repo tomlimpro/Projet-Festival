@@ -19,12 +19,34 @@ namespace FestivalAPI.Data
         {
         }
 
-        public DbSet<FestivalAPI.Models.Festival> Festival { get; set; }
+        public DbSet<FestivalAPI.Models.Festival> Festivals { get; set; }
 
-        public DbSet<FestivalAPI.Models.Organisateur> Organisateur { get; set; }
-    
+        public DbSet<FestivalAPI.Models.Organisateur> Organisateurs { get; set; }
 
-        
+        public DbSet<FestivalAPI.Models.Artiste> Artistes { get; set; }
+
+        public DbSet<FestivalAPI.Models.Hebergement> Hebergements { get; set; }
+
+        public DbSet<FestivalAPI.Models.Scene> Scenes { get; set; }
+
+        public DbSet<FestivalAPI.Models.Tarif> Tarifs { get; set; }
+       
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Festival>().ToTable("Festival");
+            modelBuilder.Entity<Organisateur>().ToTable("Organisateur");
+            modelBuilder.Entity<Artiste>().ToTable("Artiste");
+            modelBuilder.Entity<Tarif>().ToTable("Tarif");
+            modelBuilder.Entity<Scene>().ToTable("Scene");
+            modelBuilder.Entity<Hebergement>().ToTable("Hebergement");
+
+
+
+        }
+
+
+
 
         /*
         protected override void OnConfiguring(DbContextOptionsBuilder options)

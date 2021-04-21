@@ -23,13 +23,15 @@ namespace wpfFestival
         private readonly ICollection<Festival> ListeFestivals;
         private readonly ICollection<Organisateur> ListeOrganisateurs;
         private string EmailOrga;
+        private string nomfesti;
+
         public updateOrganisateur()
         {
             InitializeComponent();
             ListeFestivals = API.Instance.GetFestival().Result;
             foreach (Festival festival in ListeFestivals)
             {
-                LbFestival.Items.Add(festival.FestivalId + " " + festival.Nom_Festival);
+                LbFestival.Items.Add(festival.Nom_Festival);
 
             }
 
@@ -49,7 +51,7 @@ namespace wpfFestival
             orga.Nom = updateNomBox.Text;
             orga.Email = updateEmailBox.Text;
             orga.Mot_de_passe = updateMdpBox.Text;
-            orga.FestivalId = int.Parse(updateIdFestivalBox.Text);
+            orga.FestivalID = int.Parse(updateIdFestivalBox.Text);
             _ = API.Instance.ModifierOrganisateur(orga);
             MessageBox.Show("Organisateur modifié avec succès !", "Enregistrement effectué", MessageBoxButton.OK, MessageBoxImage.Information);
             updateOrganisateur updateorga = new updateOrganisateur();
@@ -64,8 +66,15 @@ namespace wpfFestival
             updateNomBox.Text = organisateur.Nom;
             updateEmailBox.Text = organisateur.Email;
             updateMdpBox.Text = organisateur.Mot_de_passe;
-            updateIdFestivalBox.Text = organisateur.FestivalId.ToString();
+            
 
+        }
+
+        private void LbFestival_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            nomfesti = LbFestival.SelectedItem.ToString();
+            var fest = API.Instance.GetFestival(nomfesti).Result;
+            updateIdFestivalBox.Text = Convert.ToString(fest.FestivalID);
         }
     }
 }

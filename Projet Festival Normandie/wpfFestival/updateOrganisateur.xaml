@@ -35,7 +35,7 @@
             <Button Content="Mettre à jour" Width="83" Click="BtnUpdateOrga"/>
         </StackPanel>
         <ListBox x:Name="LbOrganisateur" HorizontalAlignment="Left" Height="308" Margin="335,61,0,0" VerticalAlignment="Top" Width="192" SelectionChanged="LbOrganisateur_SelectionChanged"/>
-        <ListBox x:Name="LbFestival" HorizontalAlignment="Left" Height="308" Margin="565,61,0,0" VerticalAlignment="Top" Width="192"/>
+        <ListBox x:Name="LbFestival" HorizontalAlignment="Left" Height="308" Margin="565,61,0,0" VerticalAlignment="Top" Width="192" SelectionChanged="LbFestival_SelectionChanged"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="113" Margin="10,240,0,0" Stroke="Black" VerticalAlignment="Top" Width="277"/>
         <TextBlock HorizontalAlignment="Left" Height="19" Margin="17,251,0,0" Text="1. Selectionnez l'organisateur à modifier." TextWrapping="Wrap" VerticalAlignment="Top" Width="237"/>
         <TextBlock HorizontalAlignment="Left" Height="16" Margin="17,281,0,0" Text="2. Modifiez les informations dans les champs." TextWrapping="Wrap" VerticalAlignment="Top" Width="251"/>

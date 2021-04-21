@@ -22,19 +22,28 @@ namespace FestivalWEB.Controllers
         // GET: MvcFestivals
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Festival.ToListAsync());
+            var viewModel = new FestivalData();
+            viewModel.Festi = await _context.Festivals
+                .Include(i => i.Organisateur)
+                .Include(i => i.Tarif)
+                .Include(i => i.Hebergement)
+                .Include(i => i.Scene)
+                    .ThenInclude(i => i.Artistes)
+                .AsNoTracking()
+                .ToListAsync();
+            return View(viewModel);
         }
-
-        // GET: MvcFestivals/Details/5
-        public async Task<IActionResult> Details(int? id)
+        
+    // GET: MvcFestivals/Details/5
+    public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var festival = await _context.Festival
-                .FirstOrDefaultAsync(m => m.FestivalId == id);
+            var festival = await _context.Festivals
+                .FirstOrDefaultAsync(m => m.FestivalID == id);
             if (festival == null)
             {
                 return NotFound();
@@ -54,7 +63,7 @@ namespace FestivalWEB.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FestivalId,Nom_Festival,Lieu")] Festival festival)
+        public async Task<IActionResult> Create([Bind("FestivalID,Nom_Festival,Ville,Description,Logo,DateDebut,DateFin")] Festival festival)
         {
             if (ModelState.IsValid)
             {
@@ -73,7 +82,7 @@ namespace FestivalWEB.Controllers
                 return NotFound();
             }
 
-            var festival = await _context.Festival.FindAsync(id);
+            var festival = await _context.Festivals.FindAsync(id);
             if (festival == null)
             {
                 return NotFound();
@@ -86,9 +95,9 @@ namespace FestivalWEB.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FestivalId,Nom_Festival,Lieu")] Festival festival)
+        public async Task<IActionResult> Edit(int id, [Bind("FestivalID,Nom_Festival,Ville,Description,Logo,DateDebut,DateFin")] Festival festival)
         {
-            if (id != festival.FestivalId)
+            if (id != festival.FestivalID)
             {
                 return NotFound();
             }
@@ -102,7 +111,7 @@ namespace FestivalWEB.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!FestivalExists(festival.FestivalId))
+                    if (!FestivalExists(festival.FestivalID))
                     {
                         return NotFound();
                     }
@@ -124,8 +133,8 @@ namespace FestivalWEB.Controllers
                 return NotFound();
             }
 
-            var festival = await _context.Festival
-                .FirstOrDefaultAsync(m => m.FestivalId == id);
+            var festival = await _context.Festivals
+                .FirstOrDefaultAsync(m => m.FestivalID == id);
             if (festival == null)
             {
                 return NotFound();
@@ -139,15 +148,15 @@ namespace FestivalWEB.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var festival = await _context.Festival.FindAsync(id);
-            _context.Festival.Remove(festival);
+            var festival = await _context.Festivals.FindAsync(id);
+            _context.Festivals.Remove(festival);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool FestivalExists(int id)
         {
-            return _context.Festival.Any(e => e.FestivalId == id);
+            return _context.Festivals.Any(e => e.FestivalID == id);
         }
     }
 }

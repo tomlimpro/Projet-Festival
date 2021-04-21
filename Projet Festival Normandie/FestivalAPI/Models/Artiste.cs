@@ -9,13 +9,17 @@ namespace FestivalAPI.Models
     public class Artiste
     {
         [Key]
-        public int ArtisteId { get; set; }
+        public int ArtisteID { get; set; }
         [Required]
         public string Nom_Artiste { get; set; }
         public string Style_Artiste { get; set; }
         public string Descriptif_Artiste { get; set; }
         public string Pays_Artiste { get; set; }
         public string ExtraitMusical_Artiste { get; set; }
+        
+        public int? SceneID { get; set; }
+        public Scene Scene { get; set; }
+        
 
     }
 }

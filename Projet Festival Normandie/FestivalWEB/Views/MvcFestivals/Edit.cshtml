@@ -12,16 +12,36 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="FestivalId" />
+            <input type="hidden" asp-for="FestivalID" />
             <div class="form-group">
                 <label asp-for="Nom_Festival" class="control-label"></label>
                 <input asp-for="Nom_Festival" class="form-control" />
                 <span asp-validation-for="Nom_Festival" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Lieu" class="control-label"></label>
-                <input asp-for="Lieu" class="form-control" />
-                <span asp-validation-for="Lieu" class="text-danger"></span>
+                <label asp-for="Ville" class="control-label"></label>
+                <input asp-for="Ville" class="form-control" />
+                <span asp-validation-for="Ville" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Logo" class="control-label"></label>
+                <input asp-for="Logo" class="form-control" />
+                <span asp-validation-for="Logo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateDebut" class="control-label"></label>
+                <input asp-for="DateDebut" class="form-control" />
+                <span asp-validation-for="DateDebut" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateFin" class="control-label"></label>
+                <input asp-for="DateFin" class="form-control" />
+                <span asp-validation-for="DateFin" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

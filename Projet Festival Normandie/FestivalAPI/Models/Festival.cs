@@ -16,15 +16,31 @@ namespace FestivalAPI.Models
     {
 
         [Key]
-        public int FestivalId { get; set; }
+        public int FestivalID { get; set; }
         [Required]
         public string Nom_Festival { get; set; }
-        public string Lieu { get; set; }
+        public string Ville { get; set; }
 
         public string Description { get; set; }
         public string Logo { get; set; }
-       
-        public virtual ICollection<Organisateur> Organisateurs { get; set; }
+        public DateTime DateDebut { get; set; }
+        public DateTime DateFin { get; set; }
+
+        // Un festival peut avoir plusieurs : 
+        // - Tarifs
+        // - Scenes
+        // - Hebergements
+        // - Organisateurs
+        public ICollection<Tarif> Tarif { get; set; }
+        public ICollection<Scene> Scene { get; set; }
+        public ICollection<Hebergement> Hebergement { get; set; }
+        public ICollection<Organisateur> Organisateur { get; set; }
+        /*
+        public Tarif Tarif { get; set; }
+        public Scene Scene { get; set; }
+        public Hebergement Hebergement { get; set; }
+        public Organisateur Organisateur { get; set; }
+        */
 
 
 

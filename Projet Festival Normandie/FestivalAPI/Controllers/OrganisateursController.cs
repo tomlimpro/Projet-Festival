@@ -23,16 +23,16 @@ namespace FestivalAPI.Controllers
 
         // GET: api/Organisateurs
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Organisateur>>> GetOrganisateur()
+        public async Task<ActionResult<IEnumerable<Organisateur>>> GetOrganisateurs()
         {
-            return await _context.Organisateur.ToListAsync();
+            return await _context.Organisateurs.ToListAsync();
         }
 
         // GET: api/Organisateurs/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Organisateur>> GetOrganisateur(int id)
         {
-            var organisateur = await _context.Organisateur.FindAsync(id);
+            var organisateur = await _context.Organisateurs.FindAsync(id);
 
             if (organisateur == null)
             {
@@ -41,11 +41,11 @@ namespace FestivalAPI.Controllers
 
             return organisateur;
         }
-        // GET : api/Organisateurs/GetEmailOrganisateur
+
         [HttpGet("GetEmailOrganisateur/{Email}")]
         public async Task<ActionResult<Organisateur>> GetEmailOrganisateur(string email)
         {
-            var orga = await _context.Organisateur.FirstOrDefaultAsync(o => o.Email.Equals(email));
+            var orga = await _context.Organisateurs.FirstOrDefaultAsync(o => o.Email.Equals(email));
             if (orga == null)
             {
                 return NotFound();
@@ -60,7 +60,7 @@ namespace FestivalAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutOrganisateur(int id, Organisateur organisateur)
         {
-            if (id != organisateur.IdOrganisateur)
+            if (id != organisateur.OrganisateurID)
             {
                 return BadRequest();
             }
@@ -92,23 +92,23 @@ namespace FestivalAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Organisateur>> PostOrganisateur(Organisateur organisateur)
         {
-            _context.Organisateur.Add(organisateur);
+            _context.Organisateurs.Add(organisateur);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetOrganisateur", new { id = organisateur.IdOrganisateur }, organisateur);
+            return CreatedAtAction("GetOrganisateur", new { id = organisateur.OrganisateurID }, organisateur);
         }
 
         // DELETE: api/Organisateurs/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Organisateur>> DeleteOrganisateur(int id)
         {
-            var organisateur = await _context.Organisateur.FindAsync(id);
+            var organisateur = await _context.Organisateurs.FindAsync(id);
             if (organisateur == null)
             {
                 return NotFound();
             }
 
-            _context.Organisateur.Remove(organisateur);
+            _context.Organisateurs.Remove(organisateur);
             await _context.SaveChangesAsync();
 
             return organisateur;
@@ -116,7 +116,7 @@ namespace FestivalAPI.Controllers
 
         private bool OrganisateurExists(int id)
         {
-            return _context.Organisateur.Any(e => e.IdOrganisateur == id);
+            return _context.Organisateurs.Any(e => e.OrganisateurID == id);
         }
     }
 }

@@ -23,16 +23,16 @@ namespace FestivalAPI.Controllers
 
         // GET: api/Artistes
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Artiste>>> GetArtiste()
+        public async Task<ActionResult<IEnumerable<Artiste>>> GetArtistes()
         {
-            return await _context.Artiste.ToListAsync();
+            return await _context.Artistes.ToListAsync();
         }
 
         // GET: api/Artistes/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Artiste>> GetArtiste(int id)
         {
-            var artiste = await _context.Artiste.FindAsync(id);
+            var artiste = await _context.Artistes.FindAsync(id);
 
             if (artiste == null)
             {
@@ -48,7 +48,7 @@ namespace FestivalAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutArtiste(int id, Artiste artiste)
         {
-            if (id != artiste.ArtisteId)
+            if (id != artiste.ArtisteID)
             {
                 return BadRequest();
             }
@@ -80,23 +80,23 @@ namespace FestivalAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Artiste>> PostArtiste(Artiste artiste)
         {
-            _context.Artiste.Add(artiste);
+            _context.Artistes.Add(artiste);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetArtiste", new { id = artiste.ArtisteId }, artiste);
+            return CreatedAtAction("GetArtiste", new { id = artiste.ArtisteID }, artiste);
         }
 
         // DELETE: api/Artistes/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Artiste>> DeleteArtiste(int id)
         {
-            var artiste = await _context.Artiste.FindAsync(id);
+            var artiste = await _context.Artistes.FindAsync(id);
             if (artiste == null)
             {
                 return NotFound();
             }
 
-            _context.Artiste.Remove(artiste);
+            _context.Artistes.Remove(artiste);
             await _context.SaveChangesAsync();
 
             return artiste;
@@ -104,7 +104,7 @@ namespace FestivalAPI.Controllers
 
         private bool ArtisteExists(int id)
         {
-            return _context.Artiste.Any(e => e.ArtisteId == id);
+            return _context.Artistes.Any(e => e.ArtisteID == id);
         }
     }
 }

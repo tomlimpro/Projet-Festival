@@ -14,15 +14,18 @@ namespace FestivalAPI.Models
     public class Organisateur
     {
         [Key]
-        public int IdOrganisateur { get; set; }
+        public int OrganisateurID { get; set; }
         [Required]
         public string Nom { get; set; }
         public string Prenom { get; set; }
         public string Mot_de_passe { get; set; }
         public string Email { get; set; }
 
-        [ForeignKey("FK_Festival")]
-        public int FestivalId{ get; set; }
+        // Organisateur a une propriété de clé étrangère FestivalID qui pointe sur l'entité Festival associé 
+        // et elle a une propriété de navigation Festival.
+
+        public int? FestivalID { get; set; }
+        public Festival Festival { get; set; }
         
         
         

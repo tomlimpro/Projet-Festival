@@ -21,26 +21,11 @@ namespace wpfFestival
     public partial class pageFestival : Page
     {
         private ICollection<Festival> ListeFestivals;
-        private List<Festival> Loaddata()
-        {
-            List<Festival> festi = new List<Festival>();
-            ListeFestivals = API.Instance.GetFestival().Result;
-            foreach(Festival festival in ListeFestivals)
-            {
-                festi.Add(new Festival()
-                {
-                    Nom_Festival = festival.Nom_Festival,
-                    Lieu = festival.Lieu,
-                    
-                });
-            }
-            return festi;
-
-        }
+      
         public pageFestival()
         {
             InitializeComponent();
-            dgFestival.ItemsSource = Loaddata();
+            
             
 
         }

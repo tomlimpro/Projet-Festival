@@ -98,7 +98,7 @@ namespace wpfFestival.ControllersAPI
         {
             try
             {
-                HttpResponseMessage response = await client.PutAsJsonAsync("api/Festivals/" + festival.FestivalId, festival);
+                HttpResponseMessage response = await client.PutAsJsonAsync("api/Festivals/" + festival.FestivalID, festival);
                 response.EnsureSuccessStatusCode();
                 return response.Headers.Location;
             }
@@ -189,7 +189,7 @@ namespace wpfFestival.ControllersAPI
         {
             try
             {
-                HttpResponseMessage response = await client.PutAsJsonAsync("api/Organisateurs/" + organisateur.IdOrganisateur, organisateur);
+                HttpResponseMessage response = await client.PutAsJsonAsync("api/Organisateurs/" + organisateur.OrganisateurID, organisateur);
                 response.EnsureSuccessStatusCode();
                 return response.Headers.Location;
             }
