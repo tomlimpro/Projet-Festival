@@ -27,6 +27,5 @@ namespace FestivalAPI.Models
         public Scene Scene { get; set; }
         public string UrlImage { get; set; }
 
-
     }
 }

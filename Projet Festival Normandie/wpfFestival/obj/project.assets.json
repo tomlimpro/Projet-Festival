@@ -9011,24 +9011,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\theom\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\tomli\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\theom\\Source\\Repos\\tomlimpro\\Projet-Festival-github\\Projet Festival Normandie\\wpfFestival\\wpfFestival.csproj",
+      "projectUniqueName": "C:\\Users\\tomli\\Source\\Repos\\tomlimpro\\Projet-Festival-v2\\Projet Festival Normandie\\wpfFestival\\wpfFestival.csproj",
       "projectName": "wpfFestival",
-      "projectPath": "C:\\Users\\theom\\Source\\Repos\\tomlimpro\\Projet-Festival-github\\Projet Festival Normandie\\wpfFestival\\wpfFestival.csproj",
-      "packagesPath": "C:\\Users\\theom\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\theom\\Source\\Repos\\tomlimpro\\Projet-Festival-github\\Projet Festival Normandie\\wpfFestival\\obj\\",
+      "projectPath": "C:\\Users\\tomli\\Source\\Repos\\tomlimpro\\Projet-Festival-v2\\Projet Festival Normandie\\wpfFestival\\wpfFestival.csproj",
+      "packagesPath": "C:\\Users\\tomli\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tomli\\Source\\Repos\\tomlimpro\\Projet-Festival-v2\\Projet Festival Normandie\\wpfFestival\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\theom\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\tomli\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9042,8 +9037,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\theom\\Source\\Repos\\tomlimpro\\Projet-Festival-github\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj": {
-              "projectPath": "C:\\Users\\theom\\Source\\Repos\\tomlimpro\\Projet-Festival-github\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj"
+            "C:\\Users\\tomli\\Source\\Repos\\tomlimpro\\Projet-Festival-v2\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj": {
+              "projectPath": "C:\\Users\\tomli\\Source\\Repos\\tomlimpro\\Projet-Festival-v2\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj"
             }
           }
         }
@@ -9074,6 +9069,9 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           },
@@ -9081,7 +9079,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -3,11 +3,13 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+<p><br /></p>
+<p><br /></p>
+<p><br /></p>
 <h1>Artistes</h1>
 
 <p>
-    <a asp-action="Create">Créer</a>
+    <a asp-action="Create">Ajouter un artiste</a>
 </p>
 <table class="table">
     <thead>
@@ -26,6 +28,12 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ExtraitMusical_Artiste)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UrlImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Scene)
             </th>
             <th></th>
         </tr>
@@ -47,6 +55,12 @@
             </td>
             <td>
                 <a href="@Html.DisplayFor(modelItem => item.ExtraitMusical_Artiste)">Extrait</a>
+            </td>
+            <td>
+                <a href="@Html.DisplayFor(modelItem => item.UrlImage)">UrlImage</a>
+            </td>
+            <td>
+                <a href="@Html.DisplayFor(modelItem => item.SceneID)">Extrait</a>
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ArtisteID">Modifié</a> |

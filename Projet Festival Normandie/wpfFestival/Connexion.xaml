@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Connexion">
 
-    <Grid Margin="0,0,-273,-221">
+    <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Background.jpg">
                 <ImageBrush.RelativeTransform>
@@ -22,12 +22,12 @@
             </ImageBrush>
         </Grid.Background>
         <Label Content="Bienvenue sur l'application  Normandie-Festival" FontSize="30" HorizontalAlignment="Center" Height="96" Margin="0,51,0,0" VerticalAlignment="Top" Width="652"/>
-        <Label Content="Connectez-vous" HorizontalAlignment="Center" FontSize="25" Height="41" Margin="0,147,0,0" VerticalAlignment="Top" Width="220"/>
-        <TextBox x:Name="LoginTextBox" HorizontalAlignment="Center" Height="31" Margin="0,303,0,0" Text="Entrez votre login" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"  RenderTransformOrigin="0.528,1.511"/>
-        <TextBox x:Name="MdpTextBox" HorizontalAlignment="Center" Height="33" Margin="0,432,0,0" Text="Entrez votre mot de passe" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" TextChanged="MdpTextBox_TextChanged" />
-        <Button x:Name="SeConnecter" Content="Se connecter" HorizontalAlignment="Center" Height="39" Margin="0,510,0,0" VerticalAlignment="Top" Width="127" Click="Se_connecter" RenderTransformOrigin="1.305,0.246"/>
-        <TextBlock x:Name="___TextBlock__Login_" HorizontalAlignment="Center" Margin="0,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="126"><Run Language="fr-fr" Text="Login "/></TextBlock>
-        <TextBlock x:Name="___TextBlock__Mdp_" HorizontalAlignment="Center" Margin="0,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="128"><Run Language="fr-fr" Text="Mot de passe "/></TextBlock>
+        <Label Content="Connectez-vous" HorizontalAlignment="Center" FontSize="25" Height="41" Margin="0,115,0,0" VerticalAlignment="Top" Width="220"/>
+        <TextBox x:Name="LoginTextBox" HorizontalAlignment="Center" Height="31" Margin="0,230,0,0" Text="Entrez votre login" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"  RenderTransformOrigin="0.528,1.511"/>
+        <TextBox x:Name="MdpTextBox" HorizontalAlignment="Center" Height="33" Margin="0,328,0,0" Text="Entrez votre mot de passe" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" TextChanged="MdpTextBox_TextChanged" />
+        <Button x:Name="SeConnecter" Content="Se connecter" HorizontalAlignment="Center" Height="39" Margin="0,390,0,0" VerticalAlignment="Top" Width="127" Click="Se_connecter" RenderTransformOrigin="1.305,0.246"/>
+        <TextBlock x:Name="___TextBlock__Login_" HorizontalAlignment="Center" Margin="0,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="126"><Run Language="fr-fr" Text="Login "/></TextBlock>
+        <TextBlock x:Name="___TextBlock__Mdp_" HorizontalAlignment="Center" Margin="0,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="128"><Run Language="fr-fr" Text="Mot de passe "/></TextBlock>
     </Grid>
 </Page>
 

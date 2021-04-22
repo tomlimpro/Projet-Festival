@@ -3,7 +3,9 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+<p><br /></p>
+<p><br /></p>
+<p><br /></p>
 <h1>Index</h1>
 
 <p>
@@ -25,23 +27,24 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TypeHebergement)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LienHebergement)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Festival.Nom_Festival)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.HebergementID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.HebergementID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.HebergementID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TypeHebergement)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LienHebergement)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Festival.Nom_Festival)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.HebergementID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.HebergementID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.HebergementID">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

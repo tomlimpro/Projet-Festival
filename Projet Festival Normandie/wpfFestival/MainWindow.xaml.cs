@@ -23,8 +23,8 @@ namespace wpfFestival
         public MainWindow()
         {
             InitializeComponent();
-            Menu menu = new Menu();
-            myframe.NavigationService.Navigate(menu);
+            Connexion connexion = new Connexion();
+            myframe.NavigationService.Navigate(connexion);
         }
     }
 }

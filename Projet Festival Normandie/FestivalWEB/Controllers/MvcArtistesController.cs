@@ -22,7 +22,8 @@ namespace FestivalWEB.Controllers
         // GET: MvcArtistes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Artistes.ToListAsync());
+            var festivalAPIContext = _context.Artistes.Include(a => a.Scene);
+            return View(await festivalAPIContext.ToListAsync());
         }
 
         // GET: MvcArtistes/Details/5
@@ -34,6 +35,8 @@ namespace FestivalWEB.Controllers
             }
 
             var artiste = await _context.Artistes
+                .Include(a => a.Scene)
+                .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.ArtisteID == id);
             if (artiste == null)
             {
@@ -46,15 +49,16 @@ namespace FestivalWEB.Controllers
         // GET: MvcArtistes/Create
         public IActionResult Create()
         {
+            PopulateScenesDropDownList();
             return View();
         }
 
         // POST: MvcArtistes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ArtisteID,Nom_Artiste,Style_Artiste,Descriptif_Artiste,Pays_Artiste,ExtraitMusical_Artiste,UrlImage,SceneID")] Artiste artiste)
+        public async Task<IActionResult> Create([Bind("ArtisteID,Nom_Artiste,Style_Artiste,Descriptif_Artiste,Pays_Artiste,ExtraitMusical_Artiste,UrlImage ,SceneID")] Artiste artiste)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +66,7 @@ namespace FestivalWEB.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            PopulateScenesDropDownList();
             return View(artiste);
         }
 
@@ -73,49 +78,61 @@ namespace FestivalWEB.Controllers
                 return NotFound();
             }
 
-            var artiste = await _context.Artistes.FindAsync(id);
+            var artiste = await _context.Artistes
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.ArtisteID == id);
+
             if (artiste == null)
             {
                 return NotFound();
             }
+            PopulateScenesDropDownList(artiste.SceneID);
             return View(artiste);
         }
 
         // POST: MvcArtistes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ArtisteID,Nom_Artiste,Style_Artiste,Descriptif_Artiste,Pays_Artiste,ExtraitMusical_Artiste,UrlImage,SceneID")] Artiste artiste)
+        public async Task<IActionResult> EditPost(int? id)
+
         {
-            if (id != artiste.ArtisteID)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            var artisteToUpdate = await _context.Artistes
+                .FirstOrDefaultAsync(c => c.ArtisteID == id);
+
+            if (await TryUpdateModelAsync<Artiste>(artisteToUpdate,
+                "",
+                c => c.Nom_Artiste, c => c.Style_Artiste, c => c.Descriptif_Artiste, c => c.Pays_Artiste, c => c.ExtraitMusical_Artiste,c => c.UrlImage, c => c.SceneID))
             {
                 try
                 {
-                    _context.Update(artiste);
                     await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
                 }
-                catch (DbUpdateConcurrencyException)
+                catch (DbUpdateException /* ex */)
                 {
-                    if (!ArtisteExists(artiste.ArtisteID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    //Log the error (uncomment ex variable name and write a log.)
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                        "Try again, and if the problem persists, " +
+                        "see your system administrator.");
                 }
-                return RedirectToAction(nameof(Index));
             }
-            return View(artiste);
+            PopulateScenesDropDownList(artisteToUpdate.SceneID);
+            return View(artisteToUpdate);
         }
-
+        private void PopulateScenesDropDownList(object selectedScene = null)
+        {
+            var scenesQuery = from d in _context.Scenes
+                              orderby d.Nom_Scene
+                              select d;
+            ViewBag.SceneID = new SelectList(scenesQuery.AsNoTracking(), "SceneID", "Nom_Scene", selectedScene);
+        }
         // GET: MvcArtistes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -125,6 +142,7 @@ namespace FestivalWEB.Controllers
             }
 
             var artiste = await _context.Artistes
+                .Include(a => a.Scene)
                 .FirstOrDefaultAsync(m => m.ArtisteID == id);
             if (artiste == null)
             {
