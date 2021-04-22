@@ -215,6 +215,31 @@ namespace wpfFestival.ControllersAPI
             }
             return null;
         }
+        /*******************************************Gestionnaire*************************************************/
+        public async Task<ICollection<Gestionnaire>> GetGestionnaire()
+        {
+            ICollection<Gestionnaire> Gestionnaire = new List<Gestionnaire>();
+            HttpResponseMessage response = client.GetAsync("api/Gestionnaires").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var resp = await response.Content.ReadAsStringAsync();
+                Gestionnaire = JsonConvert.DeserializeObject<List<Gestionnaire>>(resp);
+            }
+            return Gestionnaire;
+        }
+
+
+        public async Task<Gestionnaire> GetLoginGestionnaire(string email, string mdp)
+        {
+            Gestionnaire Gestionnaire = null;
+            HttpResponseMessage response = client.GetAsync("api/Gestionnaires/GetLoginGestionnaire/" + email + "/" + mdp).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var resp = await response.Content.ReadAsStringAsync();
+                Gestionnaire = JsonConvert.DeserializeObject<Gestionnaire>(resp);
+            }
+            return Gestionnaire;
+        }
     }
 
 }
