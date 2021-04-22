@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\emili\source\repos\Projet-Festival\Projet_Festival_Normandie\Projet Festival Normandie\wpfFestival\obj\Debug\netcoreapp3.1\
+C:\Users\theom\Source\Repos\tomlimpro\Projet-Festival-github\Projet Festival Normandie\wpfFestival\obj\Debug\netcoreapp3.1\
 wpfFestival
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
-C:\Users\emili\source\repos\Projet-Festival\Projet_Festival_Normandie\Projet Festival Normandie\wpfFestival\App.xaml
-112130793681
+C:\Users\theom\Source\Repos\tomlimpro\Projet-Festival-github\Projet Festival Normandie\wpfFestival\App.xaml
+11-1590478167
 
-17-489874252
-364-1235115424
+171243455321
+364-1224236002
 addFestival.xaml;addOrganisateur.xaml;Connexion.xaml;deleteFestival.xaml;deleteOrganisateur.xaml;MainWindow.xaml;Menu.xaml;pageFestival.xaml;pageOrganisateur.xaml;updateFestival.xaml;updateOrganisateur.xaml;
 
-False
+True
 

@@ -20,7 +20,7 @@ namespace FestivalAPI.Data
         }
 
         public DbSet<FestivalAPI.Models.Festival> Festivals { get; set; }
-
+        public DbSet<FestivalAPI.Models.Gestionnaire> Gestionnaire{ get; set; }
         public DbSet<FestivalAPI.Models.Organisateur> Organisateurs { get; set; }
 
         public DbSet<FestivalAPI.Models.Artiste> Artistes { get; set; }

@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet_Festival_Normandie\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj": {}
+    "C:\\Users\\theom\\Source\\Repos\\tomlimpro\\Projet-Festival-github\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet_Festival_Normandie\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj": {
+    "C:\\Users\\theom\\Source\\Repos\\tomlimpro\\Projet-Festival-github\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet_Festival_Normandie\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj",
+        "projectUniqueName": "C:\\Users\\theom\\Source\\Repos\\tomlimpro\\Projet-Festival-github\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj",
         "projectName": "FestivalAPI",
-        "projectPath": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet_Festival_Normandie\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj",
-        "packagesPath": "C:\\Users\\emili\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet_Festival_Normandie\\Projet Festival Normandie\\FestivalAPI\\obj\\",
+        "projectPath": "C:\\Users\\theom\\Source\\Repos\\tomlimpro\\Projet-Festival-github\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj",
+        "packagesPath": "C:\\Users\\theom\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\theom\\Source\\Repos\\tomlimpro\\Projet-Festival-github\\Projet Festival Normandie\\FestivalAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\emili\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\theom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -81,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
