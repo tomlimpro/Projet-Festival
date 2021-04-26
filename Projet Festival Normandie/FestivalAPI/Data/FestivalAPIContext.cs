@@ -44,6 +44,9 @@ namespace FestivalAPI.Data
 
 
         }
+       
+
+        public DbSet<FestivalAPI.Models.Festivalier> Festivalier { get; set; }
 
 
 

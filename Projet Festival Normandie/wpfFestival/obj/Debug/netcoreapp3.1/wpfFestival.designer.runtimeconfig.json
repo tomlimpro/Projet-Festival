@@ -12,8 +12,13 @@
       }
     ],
     "additionalProbingPaths": [
+<<<<<<< HEAD
+      "C:\\Users\\emili\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\emili\\.nuget\\packages"
+=======
       "C:\\Users\\tomli\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\tomli\\.nuget\\packages"
+>>>>>>> dfd900d7b786509355da434c07c7f65e7f90e575
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true

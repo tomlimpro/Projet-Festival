@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FestivalAPI.Migrations
 {
     [DbContext(typeof(FestivalAPIContext))]
-    [Migration("20210422074516_tt")]
-    partial class tt
+    [Migration("20210426095756_fesivaer")]
+    partial class fesivaer
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -45,6 +45,9 @@ namespace FestivalAPI.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Style_Artiste")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UrlImage")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ArtisteID");
@@ -83,6 +86,56 @@ namespace FestivalAPI.Migrations
                     b.HasKey("FestivalID");
 
                     b.ToTable("Festival");
+                });
+
+            modelBuilder.Entity("FestivalAPI.Models.Festivalier", b =>
+                {
+                    b.Property<int>("IdUser")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Code_postal")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Commune")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date_de_naissance")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("EmailConfirme")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Genre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mot_de_passe")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nom")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pays")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Prenom")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telephone")
+                        .HasColumnType("nvarchar(10)")
+                        .HasMaxLength(10);
+
+                    b.HasKey("IdUser");
+
+                    b.ToTable("Festivalier");
                 });
 
             modelBuilder.Entity("FestivalAPI.Models.Gestionnaire", b =>

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FestivalAPI.Migrations
 {
-    public partial class tt : Migration
+    public partial class fesivaer : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -23,6 +23,29 @@ namespace FestivalAPI.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Festival", x => x.FestivalID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Festivalier",
+                columns: table => new
+                {
+                    IdUser = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nom = table.Column<string>(nullable: false),
+                    Prenom = table.Column<string>(nullable: false),
+                    Mot_de_passe = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(nullable: false),
+                    Genre = table.Column<string>(nullable: true),
+                    Telephone = table.Column<string>(maxLength: 10, nullable: true),
+                    Code_postal = table.Column<int>(nullable: false),
+                    Commune = table.Column<string>(nullable: true),
+                    Pays = table.Column<string>(nullable: true),
+                    Date_de_naissance = table.Column<DateTime>(nullable: false),
+                    EmailConfirme = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Festivalier", x => x.IdUser);
                 });
 
             migrationBuilder.CreateTable(
@@ -139,7 +162,8 @@ namespace FestivalAPI.Migrations
                     Descriptif_Artiste = table.Column<string>(nullable: true),
                     Pays_Artiste = table.Column<string>(nullable: true),
                     ExtraitMusical_Artiste = table.Column<string>(nullable: true),
-                    SceneID = table.Column<int>(nullable: true)
+                    SceneID = table.Column<int>(nullable: true),
+                    UrlImage = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -182,6 +206,9 @@ namespace FestivalAPI.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Artiste");
+
+            migrationBuilder.DropTable(
+                name: "Festivalier");
 
             migrationBuilder.DropTable(
                 name: "Gestionnaire");

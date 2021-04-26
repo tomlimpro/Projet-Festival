@@ -117,7 +117,7 @@ namespace wpfFestival {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/wpfFestival;component/addorganisateur.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/wpfFestival;V1.0.0.0;component/addorganisateur.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\addOrganisateur.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

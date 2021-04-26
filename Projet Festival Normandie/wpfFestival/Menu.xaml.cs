@@ -35,5 +35,12 @@ namespace wpfFestival
             this.NavigationService.Navigate(pagefestival);
             
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Connexion connexion = new Connexion();
+            this.NavigationService.Navigate(connexion);
+            
+        }
     }
 }

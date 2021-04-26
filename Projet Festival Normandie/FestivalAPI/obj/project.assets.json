@@ -9003,19 +9003,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tomli\\.nuget\\packages\\": {}
+    "C:\\Users\\emili\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tomli\\Source\\Repos\\tomlimpro\\Projet-Festival-v2\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj",
+      "projectUniqueName": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Normandie\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj",
       "projectName": "FestivalAPI",
-      "projectPath": "C:\\Users\\tomli\\Source\\Repos\\tomlimpro\\Projet-Festival-v2\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj",
-      "packagesPath": "C:\\Users\\tomli\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tomli\\Source\\Repos\\tomlimpro\\Projet-Festival-v2\\Projet Festival Normandie\\FestivalAPI\\obj\\",
+      "projectPath": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Normandie\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj",
+      "packagesPath": "C:\\Users\\emili\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Normandie\\Projet Festival Normandie\\FestivalAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\tomli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\emili\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9085,5 +9085,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problème de lecture du fichier cache C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Normandie\\Projet Festival Normandie\\FestivalAPI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

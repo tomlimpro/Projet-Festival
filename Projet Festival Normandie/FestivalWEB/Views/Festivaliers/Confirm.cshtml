@@ -1,0 +1,23 @@
+﻿
+@{ 
+    ViewBag.Title = "Confirm";
+}
+
+<br/><br/>
+<div class="alert alert-warning" id="previous">
+    <strong>Confirmer votre adresse mail</strong>
+    <input tye="submit" class="btn btn-warning" value="Confirm" onclick="Verified()"/>
+</div>
+<div class="alert alert-success" id="after">
+    <strong> Votre compte est actif, vous pouvez maintenant vous connectez</strong>
+
+</div>
+<script>
+    function Verified() {
+        $.ajax({
+            type: "post",
+            url: "/Fonctions/RegisterConfirm",
+            data: { 'idUser': '@ViewBag.idUser' }
+        })
+    }
+</script>
