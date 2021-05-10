@@ -5,22 +5,34 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using FestivalAPI.Data;
+using Microsoft.AspNetCore.Hosting;
+
 using FestivalAPI.Models;
+using FestivalAPI.Data;
+using FestivalWEB.ViewModels;
+using System.IO;
 
 namespace FestivalWEB.Controllers
 {
     public class MvcArtistesController : Controller
     {
         private readonly FestivalAPIContext _context;
+        private readonly IWebHostEnvironment webHostEnvironment;
 
-        public MvcArtistesController(FestivalAPIContext context)
+        public MvcArtistesController(FestivalAPIContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            webHostEnvironment = hostEnvironment;
         }
 
         // GET: MvcArtistes
         public async Task<IActionResult> Index()
+        {
+            var festivalAPIContext = _context.Artistes.Include(a => a.Scene);
+            return View(await festivalAPIContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> PageArtiste()
         {
             var festivalAPIContext = _context.Artistes.Include(a => a.Scene);
             return View(await festivalAPIContext.ToListAsync());
@@ -52,7 +64,8 @@ namespace FestivalWEB.Controllers
             PopulateScenesDropDownList();
             return View();
         }
-
+        
+        /*
         // POST: MvcArtistes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -68,6 +81,49 @@ namespace FestivalWEB.Controllers
             }
             PopulateScenesDropDownList();
             return View(artiste);
+        }
+        */
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(ArtisteViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                string uniqueFileName = UploadedFile(model);
+                Artiste artiste = new Artiste
+                {
+
+                    ArtisteID = model.ArtisteID,
+                    Nom_Artiste = model.Nom_Artiste,
+                    Style_Artiste = model.Style_Artiste,
+                    Descriptif_Artiste = model.Descriptif_Artiste,
+                    Pays_Artiste = model.Pays_Artiste,
+                    ExtraitMusical_Artiste = model.ExtraitMusical_Artiste,
+                    UrlImage = uniqueFileName,
+                    SceneID = model.SceneID
+                };
+                _context.Add(artiste);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
+        }
+
+        private string UploadedFile(ArtisteViewModel model)
+        {
+            string uniqueFileName = null;
+            if(model.UrlImage != null)
+            {
+                string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "images");
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + model.UrlImage.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.UrlImage.CopyTo(fileStream);
+                }
+            }
+            return uniqueFileName;
         }
 
         // GET: MvcArtistes/Edit/5
@@ -162,6 +218,8 @@ namespace FestivalWEB.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        
 
         private bool ArtisteExists(int id)
         {

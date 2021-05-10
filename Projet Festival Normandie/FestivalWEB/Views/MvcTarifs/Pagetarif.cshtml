@@ -1,0 +1,107 @@
+﻿@model FestivalAPI.Models.Tarif
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Details";
+}
+<p><br /></p>
+<p><br /></p>
+&nbsp;
+&nbsp;
+&nbsp;
+
+<section style="background-color: white; position:relative; bottom:-3px;">
+    <div class="container" style="background-color: white;">
+        <h1 style="margin: auto;">Place de festival @Html.DisplayFor(model => model.Festival.Nom_Festival) @Html.DisplayFor(model => model.Festival.DateDebut) </h1>
+    </div>
+</section>
+
+<section class="container" style="position:relative; bottom: -10px;">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="card" style="margin-bottom: 1rem">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12 col-lg-3">
+                                    <img src="~/festivalimage/@Html.DisplayFor(model => model.Festival.Logo)" class="img-fluid" />
+                                </div>
+                                <div class="col-12 col-lg-9">
+                                    <h3>
+                                        @Html.DisplayFor(model => model.Festival.Nom_Festival)
+                                    </h3>
+                                    <ul>
+                                        <li>Place de festival </li>
+                                        <li>@Html.DisplayFor(model => model.Festival.DateDebut)</li>
+                                        <li>@Html.DisplayFor(model => model.Festival.Ville)</li>
+                                    </ul>                
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="row">
+                                <div class="col-12">
+                                    <div>
+                                        <h5>Détails</h5>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                Tarif
+                                            </div>
+                                            <div class="col-sm-8">
+                                                @Html.DisplayFor(model => model.NomTarif)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4 mb-4">
+                    <div class="card card-body">
+                        <p>@Html.DisplayFor(model => model.QuantiteTotal) places disponibles</p>
+                        <form asp-action="Edit">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="TarifID" />
+                            <div class="form-group">
+                                <label class="control-label">Choisissez votre séance </label>
+                                <select name="seance">
+                                    <option value="">Date 1</option>
+                                    <option value="">Date 2</option>
+                                </select>
+                            </div>
+                            <div style="font-weight: bold; font-size: 30px;" >
+                                @Html.DisplayFor(model => model.PrixTarif) €
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Choisissez le nombre de place</label>
+                                <select name="seance">
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                    <option value="">4</option>
+                                </select>                         
+                            </div>
+                            <div class="form-group">
+                                
+                                <input type="submit" value="Valider" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+        <p><br /></p>
+        <p><br /></p>
+        <p><br /></p>
+        <p><br /></p>
+        <p><br /></p>
+        <p><br /></p>
+        <p><br /></p>
+        <p><br /></p>
+        <p><br /></p>
+        <p><br /></p>

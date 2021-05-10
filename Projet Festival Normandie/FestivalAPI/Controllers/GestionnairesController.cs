@@ -41,6 +41,7 @@ namespace FestivalAPI.Controllers
 
             return gestionnaire;
         }
+
         [HttpGet("GetLoginGestionnaire/{Email}/{Mdp}")]
         public async Task<ActionResult<Gestionnaire>> GetLoginGestionnaire(string email, string mdp)
         {

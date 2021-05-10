@@ -6,30 +6,29 @@
 <p><br /></p>
 <p><br /></p>
 <p><br /></p>
-<h1>Index</h1>
+<h1>Liste des hébergements</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Créer un hébergement</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TypeHebergement)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LienHebergement)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Festival)
-            </th>
-            <th></th>
+            <th>Type d'hébergement</th>
+            <th>Lien de l'hébergement</th>
+            <th>Nom du festival</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
+            string selectedRow = "";
+            if (item.HebergementID == (int?)ViewData["HebergementID"])
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+
                 <td>
                     @Html.DisplayFor(modelItem => item.TypeHebergement)
                 </td>
@@ -39,10 +38,13 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Festival.Nom_Festival)
                 </td>
+                
+                
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.HebergementID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.HebergementID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.HebergementID">Delete</a>
+                    <a asp-action="Index" asp-route-id="@item.FestivalID">Afficher</a> |
+                    <a asp-action="Edit" asp-route-id="@item.FestivalID">Modifier</a> |
+                    <a asp-action="Details" asp-route-id="@item.FestivalID">Afficher les détails</a> |
+                    <a asp-action="Delete" asp-route-id="@item.FestivalID">Supprimer ce festival</a>
                 </td>
             </tr>
         }

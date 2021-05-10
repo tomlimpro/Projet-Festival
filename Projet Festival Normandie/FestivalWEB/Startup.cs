@@ -1,6 +1,7 @@
 using FestivalAPI.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,10 +25,22 @@ namespace FestivalWEB
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddControllersWithViews();
+            services.AddMvc().AddSessionStateTempDataProvider();
+            services.AddSession();
+            services.AddHttpContextAccessor();
+
+         
+
             services.AddDbContext<FestivalAPIContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("FestivalAPIContext")));
-            services.AddMvc();
+           
+  
+     
+
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,12 +54,13 @@ namespace FestivalWEB
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+            ;
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
-
-            app.UseAuthorization();
-
+            app.UseAuthorization();            
+            app.UseHttpsRedirection();
+            app.UseCookiePolicy();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

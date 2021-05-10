@@ -23,16 +23,44 @@ namespace FestivalAPI.Controllers
 
         // GET: api/Festivaliers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Festivalier>>> GetFestivalier()
+        public async Task<ActionResult<IEnumerable<Festivalier>>> GetFestivaliers()
         {
-            return await _context.Festivalier.ToListAsync();
+            return await _context.Festivaliers.ToListAsync();
+        }
+
+        [HttpGet("GetFestivalierOrganisateur/{Email}")]
+        public async Task<ActionResult<Festivalier>> GetEmailFestivalier(string email)
+        {
+            var orga = await _context.Festivaliers.FirstOrDefaultAsync(o => o.Email.Equals(email));
+            if (orga == null)
+            {
+                return NotFound();
+            }
+            return orga;
+
+
+        }
+
+        [HttpGet("GetLoginFestivalier/{Email}/{Mot_de_passe}")]
+        public async Task<ActionResult<Festivalier>> GetLoginFestivalier(string email, string mot_de_passe)
+        {
+            var user = await _context.Festivaliers.FirstOrDefaultAsync(u => u.Email.Equals(email) && u.Mot_de_passe.Equals(mot_de_passe));
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+
+
+            return user;
         }
 
         // GET: api/Festivaliers/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Festivalier>> GetFestivalier(int id)
         {
-            var festivalier = await _context.Festivalier.FindAsync(id);
+            var festivalier = await _context.Festivaliers.FindAsync(id);
 
             if (festivalier == null)
             {
@@ -80,7 +108,7 @@ namespace FestivalAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Festivalier>> PostFestivalier(Festivalier festivalier)
         {
-            _context.Festivalier.Add(festivalier);
+            _context.Festivaliers.Add(festivalier);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetFestivalier", new { id = festivalier.IdUser }, festivalier);
@@ -90,13 +118,13 @@ namespace FestivalAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Festivalier>> DeleteFestivalier(int id)
         {
-            var festivalier = await _context.Festivalier.FindAsync(id);
+            var festivalier = await _context.Festivaliers.FindAsync(id);
             if (festivalier == null)
             {
                 return NotFound();
             }
 
-            _context.Festivalier.Remove(festivalier);
+            _context.Festivaliers.Remove(festivalier);
             await _context.SaveChangesAsync();
 
             return festivalier;
@@ -104,7 +132,7 @@ namespace FestivalAPI.Controllers
 
         private bool FestivalierExists(int id)
         {
-            return _context.Festivalier.Any(e => e.IdUser == id);
+            return _context.Festivaliers.Any(e => e.IdUser == id);
         }
     }
 }

@@ -1,4 +1,16 @@
-﻿<header class="masthead bg-primary text-white text-center">
+﻿
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@using FestivalAPI.Models
+@using wpfFestival.ControllersAPI
+@using System;
+@{ 
+    List<Festival> festival = API.Instance.GetFestival().Result.ToList();
+} 
+
+
+
+<header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
         <!-- Masthead Avatar Image-->
         <img class="masthead-avatar mb-5" src="~/img/avataaars.svg" alt="" />
@@ -17,7 +29,38 @@
 <section class="page-section portfolio" id="portfolio">
     <div class="container">
         <!-- Portfolio Section Heading-->
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Festival à venir ...</h2>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Festival à venir ...</h2><br />
+        <!---Carousel-->
+        <div class="row justify-content-center">
+        
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" style="width: 500px;">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="/img/portfolio/cabin.png" alt="First slide">
+                    </div>
+                    @foreach (var fest in festival)
+                    {
+                        DateTime year = DateTime.Now;
+                        int thisyear = year.Year;
+                        if (fest.DateDebut.Year == thisyear && fest.Publier == true)
+                        {
+                            <div class="carousel-item">
+                                <a asp-area="" asp-controller="MvcFestivals" asp-action="Details" asp-route-id="@fest.FestivalID"><img class="d-block w-100" src="~/festivalimage/@fest.Logo" alt="Third slide"></a>
+</div>
+                        }
+                    }
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+        </div>
         <!-- Icon Divider-->
         <div class="divider-custom">
             <div class="divider-custom-line"></div>
@@ -27,41 +70,34 @@
         <!-- Portfolio Grid Items-->
         <div class="row justify-content-center">
             <div class="col-md-4">
-                <div class="card">
-                    <a asp-area="" asp-controller="MvcArtistes" asp-action="Index"><img class="card-img-top" src="~/image/portfolio/circus.png" alt="Card image cap"></a></a>
+                <div class="card" style="height: 300px;">
+                    <a asp-area="" asp-controller="MvcArtistes" asp-action="PageArtiste"><img class="card-img-top" src="~/img/portfolio/Artistes.png" style="height:300px; width:330px;" alt="Card image cap"></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="height: 300px;">
+                    <a asp-area="" asp-controller="MvcFestivals" asp-action="Index"><img class="card-img-top" src="~/img/portfolio/Festivals.png" style="height:300px; width:330px;" alt="Card image cap"></a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card">
-                    <a asp-area="" asp-controller="MvcFestivals" asp-action="Index"><img class="card-img-top" src="~/image/portfolio/game.png" alt="Card image cap"></a></a>
+                    <a asp-area="" asp-controller="MvcScenes" asp-action="Index"><img class="card-img-top" src="~/img/portfolio/cake.png" alt="Card image cap"></a>
                 </div>
             </div>
+
             <div class="col-md-4">
                 <div class="card">
-                    <a asp-area="" asp-controller="MvcScenes" asp-action="Index"><img class="card-img-top" src="~/image/portfolio/cake.png"  alt="Card image cap"></a></a>
+                    <a asp-area="" asp-controller="MvcTarifs" asp-action="Index"><img class="card-img-top" src="~/img/portfolio/game.png" alt="Card image cap"></a>
                 </div>
             </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <a asp-area="" asp-controller="MvcHebergements" asp-action="Index"><img class="card-img-top" src="~/img/portfolio/cabin.png" alt="Card image cap"></a>
+                </div>
+            </div>
+
         </div>
-        
     </div>
 </section>
 <!-- About Section-->
-<section class="page-section bg-primary text-white mb-0" id="about">
-    <div class="container">
-        <!-- About Section Heading-->
-        <h2 class="page-section-heading text-center text-uppercase text-white">A propos</h2>
-        <!-- Icon Divider-->
-        <div class="divider-custom divider-light">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-            <div class="divider-custom-line"></div>
-        </div>
-        <!-- About Section Content-->
-        <div class="row">
-            <div class="col-lg-4 ml-auto"><p class="lead"></p></div>
-            <div class="col-lg-4 mr-auto"><p class="lead"></p></div>
-        </div>
-        <!-- About Section Button-->
-    </div>
-</section>
-<!-- Footer-->

@@ -26,7 +26,65 @@
             <TextBlock Text="Nom du Festival" TextWrapping="Wrap" FontSize="16" FontWeight="Bold"/>
             <TextBox x:Name="nomFestivalBox" TextWrapping="Wrap" Width="127" Height="25"/>
             <TextBlock Text="Lieu du festival" TextWrapping="Wrap" FontSize="16" FontWeight="Bold"/>
-            <TextBox x:Name="lieuFestivalBox" TextWrapping="Wrap" Width="127" Height="25"/>
+            <ComboBox Name="lieuFestivalbox" Width="184">
+                <ComboBoxItem>Alençon (61000)</ComboBoxItem>
+                <ComboBoxItem>Argentan (61200)</ComboBoxItem>
+                <ComboBoxItem>Barentin (76360)</ComboBoxItem>
+                <ComboBoxItem>Bayeux (14400)</ComboBoxItem>
+                <ComboBoxItem>Bernay (27300)</ComboBoxItem>
+                <ComboBoxItem>Bois-Guillaume (76230)</ComboBoxItem>
+                <ComboBoxItem>Bolbec (76210)</ComboBoxItem>
+                <ComboBoxItem>Cabourg (14390)</ComboBoxItem>
+                <ComboBoxItem>Caen (14000)</ComboBoxItem>
+                <ComboBoxItem>Canteleu (76380)</ComboBoxItem>
+                <ComboBoxItem>Caudebec-lès-Elbeuf (76320)</ComboBoxItem>
+                <ComboBoxItem>Cherbourg-en-Cotentin (50100)</ComboBoxItem>
+                <ComboBoxItem>Coutances (50200)</ComboBoxItem>
+                <ComboBoxItem>Darnétal (76160)</ComboBoxItem>
+                <ComboBoxItem>Deauville (14220)</ComboBoxItem>
+                <ComboBoxItem>Déville-lès-Rouen (76250)</ComboBoxItem>
+                <ComboBoxItem>Dieppe (76200)</ComboBoxItem>
+                <ComboBoxItem>Elbeuf (76500)</ComboBoxItem>
+                <ComboBoxItem>Évreux (27000)</ComboBoxItem>
+                <ComboBoxItem>Etretat (76790)</ComboBoxItem>
+                <ComboBoxItem>Fécamp (76400)</ComboBoxItem>
+                <ComboBoxItem>Flers (61100)</ComboBoxItem>
+                <ComboBoxItem>Gisors (27140)</ComboBoxItem>
+                <ComboBoxItem>Gonfreville-l'Orcher (76700)</ComboBoxItem>
+                <ComboBoxItem>Granville (50400)</ComboBoxItem>
+                <ComboBoxItem>Grand-Couronne (76530)</ComboBoxItem>
+                <ComboBoxItem>Gross (27220)</ComboBoxItem>
+                <ComboBoxItem>Harfleur (76700)</ComboBoxItem>
+                <ComboBoxItem>Hérouville-Saint-Clair (14200)</ComboBoxItem>
+                <ComboBoxItem>Ifs (14123)</ComboBoxItem>
+                <ComboBoxItem>La Hague (50440)</ComboBoxItem>
+                <ComboBoxItem>Le Petit-Quevilly (76140)</ComboBoxItem>
+                <ComboBoxItem>Le Havre (76600))</ComboBoxItem>
+                <ComboBoxItem>Le Grand-Quevilly (76120)</ComboBoxItem>
+                <ComboBoxItem>Lillebonne (76170)</ComboBoxItem>
+                <ComboBoxItem>Lisieux (14100)</ComboBoxItem>
+                <ComboBoxItem>Louviers (27400)</ComboBoxItem>
+                <ComboBoxItem>Maromme (76150)</ComboBoxItem>
+                <ComboBoxItem>Mézidon Vallée d'Auge (14140)</ComboBoxItem>
+                <ComboBoxItem>Mondeville (14120)</ComboBoxItem>
+                <ComboBoxItem>Mont-Saint-Aignan (76130)</ComboBoxItem>
+                <ComboBoxItem>Montivilliers (76290)</ComboBoxItem>
+                <ComboBoxItem>Oissel (76350)</ComboBoxItem>
+                <ComboBoxItem>Ouistreham (14150)</ComboBoxItem>
+                <ComboBoxItem>Petit-Caux (76370)</ComboBoxItem>
+                <ComboBoxItem>Petit-Couronne (76650)</ComboBoxItem>
+                <ComboBoxItem>Pont-Audemer (27500)</ComboBoxItem>
+                <ComboBoxItem>Port-Jérôme-sur-Seine (76170)</ComboBoxItem>
+                <ComboBoxItem>Rouen (76000)</ComboBoxItem>
+                <ComboBoxItem>Saint-Lô (50000)</ComboBoxItem>
+                <ComboBoxItem>Saint-Étienne-du-Rouvray (76800)</ComboBoxItem>
+                <ComboBoxItem>Sotteville-lès-Rouen (76300)</ComboBoxItem>
+                <ComboBoxItem>Souleuvre en Bocage (14260)</ComboBoxItem>
+                <ComboBoxItem>Vernon (27200)</ComboBoxItem>
+                <ComboBoxItem>Vire Normandie (14500)</ComboBoxItem>
+                <ComboBoxItem>Val-de-Reuil (27100)</ComboBoxItem>
+                <ComboBoxItem>Yvetot (76190)</ComboBoxItem>
+            </ComboBox>
             <TextBlock Text="Description" TextWrapping="Wrap" FontSize="16" FontWeight="Bold"/>
             <TextBox x:Name="descriptionFestivalBox"  TextWrapping="Wrap" Width="206" Height="78"/>
         </StackPanel>

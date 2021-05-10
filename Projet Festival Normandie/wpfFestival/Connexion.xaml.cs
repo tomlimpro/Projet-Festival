@@ -33,16 +33,15 @@ namespace wpfFestival
         {
             
 
-            if (LoginTextBox.Text != "" && PasswordBox.Password != "")
+            if (LoginTextBox.Text != "" && MdpTextBox.Text != "")
             {
-                Gestionnaire gestionnaire = API.Instance.GetLoginGestionnaire(LoginTextBox.Text, PasswordBox.Password).Result;
+                Gestionnaire gestionnaire = API.Instance.GetLoginGestionnaire(LoginTextBox.Text, MdpTextBox.Text).Result;
 
                 if (gestionnaire != null)
                 {
                     Session.connecte = true;
                     Menu menu = new Menu();
                     this.NavigationService.Navigate(menu);
-                    
                 }
                 else
                 {
@@ -55,6 +54,9 @@ namespace wpfFestival
 
 
         }
-        
+        private void MdpTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
     }
 }

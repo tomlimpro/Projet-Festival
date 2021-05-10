@@ -1,56 +1,134 @@
 ﻿@model FestivalAPI.Models.Festival
-
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 @{
     ViewData["Title"] = "Details";
 }
 <p><br /></p>
 <p><br /></p>
 <p><br /></p>
-<h1>Details</h1>
+<hr />
+<h1 style="text-align:center;"> Les Tarifs </h1>
+<hr />
+<section class="page-section portfolio" id="portfolio">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            @foreach (var tarif in Model.Tarif)
+            {
+                <div class="col-md-4">
+                    <div class="custom-box">
+                        <div class="servicetitle">
+                            <h4>@tarif.NomTarif</h4>
+                            <hr>
+                        </div>
+                        <div class="icn-main-container">
+                            <span class="icn-container">@tarif.PrixTarif €</span>
+                        </div>
+                        @if (tarif.QuantiteTotal > 0)
+                        {
+                            <p>Depêchez-vous ! Il ne reste que @tarif.QuantiteTotal places !</p>
+                        }
+                        @if (tarif.QuantiteTotal < 0 || tarif.QuantiteTotal == 0)
+                        {
+                            <p>Vous arrivez trop tard ! Il n'y a plus de place...</p>
+                        }
+                        <p>@tarif.DescriptionTarif</p>
+                        @if (HttpContextAccessor.HttpContext.Session.GetString("email") != null && HttpContextAccessor.HttpContext.Session.GetString("categorie").Equals("Festivalier") && tarif.QuantiteTotal > 0)
+                        {
+                            <a class="btn btn-theme" onclick="location.href='@Url.Action("Pagetarif", "MvcTarifs",new { id = tarif.TarifID})'">Reservez maintenant !</a>
+                        }
+                        @if (HttpContextAccessor.HttpContext.Session.GetString("email") != null && HttpContextAccessor.HttpContext.Session.GetString("categorie").Equals("Festivalier") && tarif.QuantiteTotal == 0)
+                        {
+                            <a class="btn btn-theme" onclick="location.href='@Url.Action("Index", "MvcFestivals")'">Retour à la liste des festivals</a>
+                        }
+                        @if (HttpContextAccessor.HttpContext.Session.GetString("categorie") == null && tarif.QuantiteTotal > 0)
+                        {
+                            <a class="btn btn-theme" onclick="location.href='@Url.Action("Index", "Login")'">Connectez vous pour réserver !</a>
+                        }
+                        @if (HttpContextAccessor.HttpContext.Session.GetString("categorie") == null && tarif.QuantiteTotal == 0)
+                        {
+                            <a class="btn btn-theme" onclick="location.href='@Url.Action("Index", "MvcFestivals")'">Retour à la liste des festivals !</a>
+                        }
+                    </div>
+
+                </div>
+            }
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<hr />
+<h1 style="text-align:center;">Programme @Model.Nom_Festival.</h1>
+<hr />
+<h1 class="hr">Date</h1>
+
+<br />
+<div class="container">
+    @foreach (var scene in Model.Scene)
+    {
+        <div class="block">
+            <div id="label">@scene.Nom_Scene</div>
+
+
+            @foreach (var artiste in scene.Artistes)
+            {
+                <span style="font-size: 30px;">@artiste.Nom_Artiste <span>&nbsp;</span></span>
+            }
+
+        </div>
+        <br />
+        <br />
+    }
+</div>
 
 <div>
-    <h4>Festival</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Nom_Festival)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Nom_Festival)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Ville)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Ville)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Logo)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Logo)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DateDebut)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DateDebut)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DateFin)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DateFin)
-        </dd>
-    </dl>
-</div>
-<div>
     <a asp-action="Edit" asp-route-id="@Model.FestivalID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Revenir à la liste.</a>
 </div>
+
+
+<style>
+
+    .hr {
+        align-items: center;
+        display: flex;
+        text-align: center;
+    }
+
+        .hr::before,
+        .hr::after {
+            border-top: 0.0625em solid;
+            content: "";
+            flex: 1;
+            margin: 0 .5em;
+        }
+
+    .block {
+        background-color: white;
+        height: 300px;
+        width: 1000px;
+        border: 1px solid black;
+        position: relative;
+        margin: auto;
+    }
+
+    #label {
+        font-size: 16px;
+        position: absolute;
+        top: -16px;
+        left: 430px;
+        height: 23px;
+        width: 200px;
+        background-color: pink;
+        border: 2px solid red;
+        text-align: center;
+    }
+</style>

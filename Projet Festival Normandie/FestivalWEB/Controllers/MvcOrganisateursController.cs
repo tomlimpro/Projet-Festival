@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FestivalAPI.Data;
 using FestivalAPI.Models;
+using FestivalWEB.ViewModels;
+using wpfFestival.ControllersAPI;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace FestivalWEB.Controllers
 {
@@ -22,9 +26,13 @@ namespace FestivalWEB.Controllers
         // GET: MvcOrganisateurs
         public async Task<IActionResult> Index()
         {
+            
             var festivalAPIContext = _context.Organisateurs.Include(o => o.Festival);
             return View(await festivalAPIContext.ToListAsync());
         }
+      
+        
+
 
         // GET: MvcOrganisateurs/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -52,6 +60,8 @@ namespace FestivalWEB.Controllers
             PopulateFestivalsDropDownList();
             return View();
         }
+
+        
 
         // POST: MvcOrganisateurs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -165,6 +175,12 @@ namespace FestivalWEB.Controllers
         private bool OrganisateurExists(int id)
         {
             return _context.Organisateurs.Any(e => e.OrganisateurID == id);
+        }
+
+        public bool CheckLogin()
+        {
+            if (HttpContext.Session.GetString("Email") != null) return true;
+            return false;
         }
     }
 }

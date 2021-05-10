@@ -1,49 +1,54 @@
 ﻿@model FestivalAPI.Models.Scene
+    <link  rel="stylesheet" href="css/styles.css" />
+  
 
-@{
-    ViewData["Title"] = "Create";
-}
-<p><br /></p>
-<p><br /></p>
-<p><br /></p>
-<h1>Create</h1>
 
-<h4>Scene</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nom_Scene" class="control-label"></label>
-                <input asp-for="Nom_Scene" class="form-control" />
-                <span asp-validation-for="Nom_Scene" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Capacite" class="control-label"></label>
-                <input asp-for="Capacite" class="form-control" />
-                <span asp-validation-for="Capacite" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Accessibilite" class="control-label"></label>
-                <input asp-for="Accessibilite" class="form-control" />
-                <span asp-validation-for="Accessibilite" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FestivalID" class="control-label"></label>
-                <select asp-for="FestivalID" class="form-control" asp-items="ViewBag.FestivalID"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+    @{
+        ViewData["Title"] = "Create";
+    }
+    <p><br /></p>
+    <p><br /></p>
+    <p><br /></p>
+    <h1>Créer une scène</h1>
+
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Nom_Scene" class="control-label"></label>
+                    <input asp-for="Nom_Scene" class="form-control" />
+                    <span asp-validation-for="Nom_Scene" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Capacite" class="control-label"></label>
+                    <input asp-for="Capacite" class="form-control" />
+                    <span asp-validation-for="Capacite" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Accessibilite" class="control-label"></label>
+                    <input asp-for="Accessibilite" class="form-control" />
+                    <span asp-validation-for="Accessibilite" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FestivalID" class="control-label"></label>
+                    <select asp-for="FestivalID" class="form-control" asp-items="ViewBag.FestivalID"></select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div>
+        <a asp-action="Index">Retour à la liste</a>
+    </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+
+   
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

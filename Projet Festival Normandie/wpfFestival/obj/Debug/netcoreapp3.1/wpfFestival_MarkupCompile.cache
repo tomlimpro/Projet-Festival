@@ -4,28 +4,16 @@
 winexe
 C#
 .cs
-<<<<<<< HEAD
-C:\Users\emili\source\repos\Projet-Festival\Projet-Festival-Normandie\Projet Festival Normandie\wpfFestival\obj\Debug\netcoreapp3.1\
-=======
-C:\Users\tomli\Source\Repos\tomlimpro\Projet-Festival-v2\Projet Festival Normandie\wpfFestival\obj\Debug\netcoreapp3.1\
->>>>>>> dfd900d7b786509355da434c07c7f65e7f90e575
+C:\Users\tomli\source\repos\Projet Festival Normandie\wpfFestival\obj\Debug\netcoreapp3.1\
 wpfFestival
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
-<<<<<<< HEAD
-C:\Users\emili\source\repos\Projet-Festival\Projet-Festival-Normandie\Projet Festival Normandie\wpfFestival\App.xaml
+C:\Users\tomli\source\repos\Projet Festival Normandie\wpfFestival\App.xaml
 112130793681
 
 15-102592954
-3641644817132
-=======
-C:\Users\tomli\Source\Repos\tomlimpro\Projet-Festival-v2\Projet Festival Normandie\wpfFestival\App.xaml
-112130793681
-
-15-102592954
-364-1931916343
->>>>>>> dfd900d7b786509355da434c07c7f65e7f90e575
+364502870201
 addFestival.xaml;addOrganisateur.xaml;Connexion.xaml;deleteFestival.xaml;deleteOrganisateur.xaml;MainWindow.xaml;Menu.xaml;pageFestival.xaml;pageOrganisateur.xaml;updateFestival.xaml;updateOrganisateur.xaml;
 
 False

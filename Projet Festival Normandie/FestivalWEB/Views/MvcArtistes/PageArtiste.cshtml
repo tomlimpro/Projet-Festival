@@ -1,0 +1,53 @@
+﻿@model IEnumerable<FestivalAPI.Models.Artiste>
+<p><br /></p>
+<p><br /></p>
+<p><br /></p>
+
+<p><br /></p>
+<h4 class="text-center text-uppercase">Liste des artistes</h4>
+
+<section class="page-section portfolio" id="portfolio">
+    <div class="container">
+        <div class="row justify-content-center">
+            @foreach(var artiste in Model)
+            {
+            <div class="col-md-4">
+                <div class="card" style=" height: auto; width : 300px;">
+                    <a asp-area="" asp-controller="MvcArtistes" asp-action="Details" asp-route-id="@artiste.ArtisteID"><img class="card-img-top" style=" height: 270px; width :295px;" src="~/images/@artiste.UrlImage" asp-append-version="true" alt="Card image cap"></a>
+                        <div class="card-body">
+
+                            <h5 class="card-title">@artiste.Nom_Artiste</h5>
+                            <p class="card-text">@artiste.Style_Artiste</p>
+                        </div>
+</div>
+            </div>
+            }
+            
+            
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+</section>
+
+
+
+
+
+
+<p><br /></p>
+<p><br /></p>
+<p><br /></p>
+
+<p><br /></p>
+<p><br /></p>
+<p><br /></p>
+<p><br /></p>
+
+<p><br /></p>

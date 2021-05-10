@@ -1,4 +1,9 @@
-﻿@model FestivalAPI.Models.Tarif
+﻿@using FestivalAPI.Models
+@using wpfFestival.ControllersAPI
+@model FestivalAPI.Models.Tarif
+@{
+    List<Festival> festival = API.Instance.GetFestival().Result.ToList();
+}
 
 @{
     ViewData["Title"] = "Edit";
@@ -6,9 +11,8 @@
 <p><br /></p>
 <p><br /></p>
 <p><br /></p>
-<h1>Edit</h1>
+<h1>Modifier ce tarif</h1>
 
-<h4>Tarif</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -26,10 +30,21 @@
                 <span asp-validation-for="PrixTarif" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="QuantiteTotal" class="control-label"></label>
+                <input asp-for="QuantiteTotal" class="form-control" />
+                <span asp-validation-for="QuantiteTotal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescriptionTarif" class="control-label"></label>
+                <textarea asp-for="DescriptionTarif" class="form-control"></textarea>
+                <span asp-validation-for="DescriptionTarif" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="FestivalID" class="control-label"></label>
                 <select asp-for="FestivalID" class="form-control" asp-items="ViewBag.FestivalID"></select>
                 <span asp-validation-for="FestivalID" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
@@ -38,9 +53,5 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Retour à la liste.</a>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

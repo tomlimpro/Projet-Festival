@@ -27,6 +27,11 @@ namespace FestivalWEB.Controllers
         {
             return View();
         }
+        
+        public PartialViewResult Publication()
+        {
+            return PartialView();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

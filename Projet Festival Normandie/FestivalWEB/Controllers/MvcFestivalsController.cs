@@ -12,6 +12,7 @@ namespace FestivalWEB.Controllers
 {
     public class MvcFestivalsController : Controller
     {
+
         private readonly FestivalAPIContext _context;
 
         public MvcFestivalsController(FestivalAPIContext context)
@@ -20,7 +21,7 @@ namespace FestivalWEB.Controllers
         }
 
         // GET: MvcFestivals
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id, int? festivalierID)
         {
             var viewModel = new FestivalData();
             viewModel.Festi = await _context.Festivals
@@ -29,13 +30,32 @@ namespace FestivalWEB.Controllers
                 .Include(i => i.Hebergement)
                 .Include(i => i.Scene)
                     .ThenInclude(i => i.Artistes)
+                .Include(i => i.Artiste)
+                .Include(i => i.FestivalierAssignments)
+                    .ThenInclude(i => i.Festivalier)
                 .AsNoTracking()
+                .OrderBy(i => i.DateDebut)
                 .ToListAsync();
+
+            if(id != null)
+            {
+                ViewData["FestivalID"] = id.Value;
+                Festival festival = viewModel.Festi.Where(
+                    i => i.FestivalID == id.Value).Single();
+                viewModel.Festivaliers = festival.FestivalierAssignments.Select(s => s.Festivalier);
+            }
+
+            
+
             return View(viewModel);
         }
+
         
-    // GET: MvcFestivals/Details/5
-    public async Task<IActionResult> Details(int? id)
+
+
+
+        // GET: MvcFestivals/Details/5
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -43,6 +63,11 @@ namespace FestivalWEB.Controllers
             }
 
             var festival = await _context.Festivals
+                .Include(m => m.Scene)
+                    .ThenInclude(m => m.Artistes)
+                .Include(m => m.Artiste)
+                .Include(m => m.Tarif)
+                
                 .FirstOrDefaultAsync(m => m.FestivalID == id);
             if (festival == null)
             {
@@ -51,6 +76,8 @@ namespace FestivalWEB.Controllers
 
             return View(festival);
         }
+
+        
 
         // GET: MvcFestivals/Create
         public IActionResult Create()
@@ -63,7 +90,7 @@ namespace FestivalWEB.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FestivalID,Nom_Festival,Ville,Description,Logo,DateDebut,DateFin")] Festival festival)
+        public async Task<IActionResult> Create([Bind("FestivalID,Nom_Festival,Ville,Description,Logo,DateDebut,DateFin,QuantitePlace")] Festival festival)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +122,7 @@ namespace FestivalWEB.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FestivalID,Nom_Festival,Ville,Description,Logo,DateDebut,DateFin")] Festival festival)
+        public async Task<IActionResult> Edit(int id, [Bind("FestivalID,Nom_Festival,Ville,Description,Logo,DateDebut,DateFin,QuantitePlace")] Festival festival)
         {
             if (id != festival.FestivalID)
             {
@@ -124,6 +151,11 @@ namespace FestivalWEB.Controllers
             }
             return View(festival);
         }
+
+
+
+       
+
 
         // GET: MvcFestivals/Delete/5
         public async Task<IActionResult> Delete(int? id)

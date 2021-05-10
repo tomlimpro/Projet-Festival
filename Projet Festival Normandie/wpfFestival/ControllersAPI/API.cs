@@ -36,6 +36,10 @@ namespace wpfFestival.ControllersAPI
                 }
             }
         }
+
+        /*****************************************User**********************************************/
+        
+
         /**************************************** Festival **************************************/
         // GetFestival permet de récupérer toutes les données de la table Festival
         public async Task<ICollection<Festival>> GetFestival()
@@ -128,6 +132,7 @@ namespace wpfFestival.ControllersAPI
         }
 
         /********************************* Organisateur ****************************************/
+       
 
 
         public async Task<ICollection<Organisateur>> GetOrganisateur()
@@ -154,10 +159,10 @@ namespace wpfFestival.ControllersAPI
             return organi;
         }
 
-        public async Task<Organisateur> GetOrganisateur(string? nom, string? email)
+        public async Task<Organisateur> GetOrganisateur(string email, string mot_de_passe)
         {
             Organisateur Organisateur = null;
-            HttpResponseMessage response = client.GetAsync("api/Organisateurs/" + nom + email).Result;
+            HttpResponseMessage response = client.GetAsync("api/Organisateurs/GetLoginOrganisateur/" + email + "/" + mot_de_passe).Result;
             if (response.IsSuccessStatusCode)
             {
                 var resp = await response.Content.ReadAsStringAsync();
@@ -239,6 +244,36 @@ namespace wpfFestival.ControllersAPI
                 Gestionnaire = JsonConvert.DeserializeObject<Gestionnaire>(resp);
             }
             return Gestionnaire;
+        }
+
+
+
+
+        /********************************** Festivalier *********************************/
+
+        public async Task<Festivalier> GetFestivalier(string email)
+        {
+            Festivalier festivalier = null;
+            HttpResponseMessage response = client.GetAsync("api/Festivaliers/GetEmailFestivalier/" + email).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var resp = await response.Content.ReadAsStringAsync();
+                festivalier = JsonConvert.DeserializeObject<Festivalier>(resp);
+            }
+            return festivalier;
+        }
+
+
+        public async Task<Festivalier> GetFestivalier(string email, string mot_de_passe)
+        {
+            Festivalier Festivalier = null;
+            HttpResponseMessage response = client.GetAsync("api/Festivaliers/GetLoginFestivalier/" + email + "/" + mot_de_passe).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var resp = await response.Content.ReadAsStringAsync();
+                Festivalier = JsonConvert.DeserializeObject<Festivalier>(resp);
+            }
+            return Festivalier;
         }
     }
 

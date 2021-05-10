@@ -23,6 +23,8 @@ namespace FestivalAPI.Models
 
         public string Description { get; set; }
         public string Logo { get; set; }
+        public int QuantitePlace { get; set; }
+        public bool Publier { get; set; }
         public DateTime DateDebut { get; set; }
         public DateTime DateFin { get; set; }
 
@@ -31,10 +33,14 @@ namespace FestivalAPI.Models
         // - Scenes
         // - Hebergements
         // - Organisateurs
+        public ICollection<Artiste> Artiste { get; set; }
         public ICollection<Tarif> Tarif { get; set; }
         public ICollection<Scene> Scene { get; set; }
         public ICollection<Hebergement> Hebergement { get; set; }
         public ICollection<Organisateur> Organisateur { get; set; }
+
+        public ICollection<FestivalierAssignment> FestivalierAssignments { get; set; }
+
         /*
         public Tarif Tarif { get; set; }
         public Scene Scene { get; set; }

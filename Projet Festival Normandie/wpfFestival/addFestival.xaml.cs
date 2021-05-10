@@ -81,7 +81,12 @@ namespace wpfFestival
                         pictureBox1.Source = new BitmapImage(new Uri(openFileDialog.FileName, UriKind.Absolute));
                         // On récupère le chemin qui nous mène vers l'image.
                         pathLogoBox.Text = openFileDialog.FileName;
+                        string source = openFileDialog.FileName;
+                        string dest = @"C:\Users\tomli\source\repos\Projet Festival Normandie\FestivalWEB\wwwroot\festivalimage\" + System.IO.Path.GetFileName(source);
+                        File.Copy(source, dest);
+                        pathLogoBox.Text = dest;
                         MessageBox.Show("L'image a bien été récupéré", "Enregistrement effecuté", MessageBoxButton.OK, MessageBoxImage.Information);
+                       
                     }
                 }
                 catch (Exception ex)
@@ -95,5 +100,7 @@ namespace wpfFestival
             }
             
         }
+
+        
     }
 }

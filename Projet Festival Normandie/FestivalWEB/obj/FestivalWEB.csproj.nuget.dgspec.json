@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Normandie\\Projet Festival Normandie\\FestivalWEB\\FestivalWEB.csproj": {}
+    "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\FestivalWEB\\FestivalWEB.csproj": {}
   },
   "projects": {
-    "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Normandie\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj": {
+    "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Normandie\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj",
+        "projectUniqueName": "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj",
         "projectName": "FestivalAPI",
-        "projectPath": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Normandie\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj",
-        "packagesPath": "C:\\Users\\emili\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Normandie\\Projet Festival Normandie\\FestivalAPI\\obj\\",
+        "projectPath": "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj",
+        "packagesPath": "C:\\Users\\tomli\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\FestivalAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\emili\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tomli\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -85,32 +85,32 @@
         }
       }
     },
-    "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Normandie\\Projet Festival Normandie\\FestivalWEB\\FestivalWEB.csproj": {
+    "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\FestivalWEB\\FestivalWEB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Normandie\\Projet Festival Normandie\\FestivalWEB\\FestivalWEB.csproj",
+        "projectUniqueName": "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\FestivalWEB\\FestivalWEB.csproj",
         "projectName": "FestivalWEB",
-        "projectPath": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Normandie\\Projet Festival Normandie\\FestivalWEB\\FestivalWEB.csproj",
-        "packagesPath": "C:\\Users\\emili\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Normandie\\Projet Festival Normandie\\FestivalWEB\\obj\\",
+        "projectPath": "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\FestivalWEB\\FestivalWEB.csproj",
+        "packagesPath": "C:\\Users\\tomli\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\FestivalWEB\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\emili\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tomli\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0"
+          "net5.0-windows7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "net5.0-windows7.0": {
+            "targetAlias": "net5.0-windows",
             "projectReferences": {
-              "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Normandie\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj": {
-                "projectPath": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Normandie\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj"
+              "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\wpfFestival\\wpfFestival.csproj": {
+                "projectPath": "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\wpfFestival\\wpfFestival.csproj"
               }
             }
           }
@@ -122,8 +122,8 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -142,10 +142,6 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[5.0.2, )"
-            },
-            "SendGrid": {
-              "target": "Package",
-              "version": "[9.23.0, )"
             }
           },
           "imports": [
@@ -164,6 +160,79 @@
             },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\wpfFestival\\wpfFestival.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\wpfFestival\\wpfFestival.csproj",
+        "projectName": "wpfFestival",
+        "projectPath": "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\wpfFestival\\wpfFestival.csproj",
+        "packagesPath": "C:\\Users\\tomli\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\wpfFestival\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\tomli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj": {
+                "projectPath": "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNet.WebApi.Client": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"

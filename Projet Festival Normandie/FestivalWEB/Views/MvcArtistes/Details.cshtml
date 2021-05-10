@@ -6,12 +6,16 @@
 <p><br /></p>
 <p><br /></p>
 <p><br /></p>
-<h1>Détails</h1>
+<h1>Détails de l'artiste</h1>
 
 <div>
     <h4>Artiste</h4>
     <hr />
     <dl class="row">
+        <dt class="col-sm-2">
+            <img src="/images/@Html.DisplayFor(model => model.UrlImage)" />
+             
+        </dt>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Nom_Artiste)
         </dt>
@@ -36,13 +40,11 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Pays_Artiste)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ExtraitMusical_Artiste)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ExtraitMusical_Artiste)
-        </dd>
+        
     </dl>
+
+    <hr />
+    <iframe src="@Html.DisplayFor(model => model.ExtraitMusical_Artiste)" height"720px"width="100%" frameborder="0" allowfullscreen=""></iframe>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.ArtisteID">Modifié</a> |

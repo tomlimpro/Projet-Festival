@@ -30,6 +30,8 @@ namespace FestivalAPI.Data
         public DbSet<FestivalAPI.Models.Scene> Scenes { get; set; }
 
         public DbSet<FestivalAPI.Models.Tarif> Tarifs { get; set; }
+        public DbSet<Festivalier> Festivaliers { get; set; }
+        public DbSet<FestivalierAssignment> FestivalierAssignments { get; set; }
        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -40,13 +42,14 @@ namespace FestivalAPI.Data
             modelBuilder.Entity<Tarif>().ToTable("Tarif");
             modelBuilder.Entity<Scene>().ToTable("Scene");
             modelBuilder.Entity<Hebergement>().ToTable("Hebergement");
+            modelBuilder.Entity<FestivalierAssignment>().ToTable("FestivalierAssignment");
+
+            modelBuilder.Entity<FestivalierAssignment>()
+                .HasKey(c => new { c.FestivalID, c.FestivalierID });
 
 
 
         }
-       
-
-        public DbSet<FestivalAPI.Models.Festivalier> Festivalier { get; set; }
 
 
 

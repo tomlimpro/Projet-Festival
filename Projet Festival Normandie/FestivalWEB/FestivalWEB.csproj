@@ -1,8 +1,25 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net5.0-windows</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\img\avataaars.svg" />
+    <None Include="wwwroot\img\favicon.ico" />
+    <None Include="wwwroot\img\festivam.webp" />
+    <None Include="wwwroot\img\logo\festival.jpg" />
+    <None Include="wwwroot\img\logo\hotel.png" />
+    <None Include="wwwroot\img\logo\scene.png" />
+    <None Include="wwwroot\img\logo\ticket.jpg" />
+    <None Include="wwwroot\img\logo\artiste.jpg" />
+    <None Include="wwwroot\img\portfolio\cabin.png" />
+    <None Include="wwwroot\img\portfolio\cake.png" />
+    <None Include="wwwroot\img\portfolio\circus.png" />
+    <None Include="wwwroot\img\portfolio\game.png" />
+    <None Include="wwwroot\img\portfolio\safe.png" />
+    <None Include="wwwroot\img\portfolio\submarine.png" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.4" />
@@ -12,11 +29,15 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
-    <PackageReference Include="SendGrid" Version="9.23.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FestivalAPI\FestivalAPI.csproj" />
+    <ProjectReference Include="..\wpfFestival\wpfFestival.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\img\wallpaper\" />
   </ItemGroup>
 
 </Project>

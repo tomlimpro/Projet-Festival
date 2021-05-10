@@ -13,5 +13,6 @@ namespace FestivalAPI.Models
         public IEnumerable<Hebergement> Hebergements { get; set; }
         public IEnumerable<Tarif> Tarifs { get; set; }
         public IEnumerable<Artiste> Artistes { get; set; }
+        public IEnumerable<Festivalier> Festivaliers { get; set; }
     }
 }

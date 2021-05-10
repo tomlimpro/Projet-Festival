@@ -1,16 +1,9 @@
 ﻿@model IEnumerable<FestivalAPI.Models.Organisateur>
 
-@{
-    ViewData["Title"] = "Index";
-}
-<p><br /></p>
-<p><br /></p>
-<p><br /></p>
-<h1>Index</h1>
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -51,15 +44,15 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Festival.Nom_Festival)
                 </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.OrganisateurID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.OrganisateurID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.OrganisateurID">Delete</a>
-                </td>
+
             </tr>
         }
     </tbody>
 </table>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
+
+
+
+
+
+

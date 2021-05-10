@@ -41,6 +41,19 @@ namespace FestivalAPI.Controllers
 
             return scene;
         }
+        // GET : api/Scenes/GetId
+        [HttpGet("GetNomFestival/{Nom_Festival}")]
+        public async Task<ActionResult<Festival>> GetNomFestival(string nom_festival)
+        {
+            var festival = await _context.Festivals.FirstOrDefaultAsync(f => f.Nom_Festival.Equals(nom_festival));
+
+            if (festival == null)
+            {
+                return NotFound();
+            }
+
+            return festival;
+        }
 
         // PUT: api/Scenes/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for

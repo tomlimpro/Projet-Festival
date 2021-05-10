@@ -32,6 +32,9 @@ namespace FestivalAPI.Migrations
                     b.Property<string>("ExtraitMusical_Artiste")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("FestivalID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nom_Artiste")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -49,6 +52,8 @@ namespace FestivalAPI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ArtisteID");
+
+                    b.HasIndex("FestivalID");
 
                     b.HasIndex("SceneID");
 
@@ -78,6 +83,12 @@ namespace FestivalAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Publier")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("QuantitePlace")
+                        .HasColumnType("int");
+
                     b.Property<string>("Ville")
                         .HasColumnType("nvarchar(max)");
 
@@ -86,7 +97,6 @@ namespace FestivalAPI.Migrations
                     b.ToTable("Festival");
                 });
 
-<<<<<<< HEAD
             modelBuilder.Entity("FestivalAPI.Models.Festivalier", b =>
                 {
                     b.Property<int>("IdUser")
@@ -134,11 +144,24 @@ namespace FestivalAPI.Migrations
 
                     b.HasKey("IdUser");
 
-                    b.ToTable("Festivalier");
+                    b.ToTable("Festivaliers");
                 });
 
-=======
->>>>>>> dfd900d7b786509355da434c07c7f65e7f90e575
+            modelBuilder.Entity("FestivalAPI.Models.FestivalierAssignment", b =>
+                {
+                    b.Property<int>("FestivalID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FestivalierID")
+                        .HasColumnType("int");
+
+                    b.HasKey("FestivalID", "FestivalierID");
+
+                    b.HasIndex("FestivalierID");
+
+                    b.ToTable("FestivalierAssignment");
+                });
+
             modelBuilder.Entity("FestivalAPI.Models.Gestionnaire", b =>
                 {
                     b.Property<int>("IdGestionnaire")
@@ -251,6 +274,9 @@ namespace FestivalAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("DescriptionTarif")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("FestivalID")
                         .HasColumnType("int");
 
@@ -259,6 +285,9 @@ namespace FestivalAPI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PrixTarif")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuantiteTotal")
                         .HasColumnType("int");
 
                     b.HasKey("TarifID");
@@ -270,9 +299,28 @@ namespace FestivalAPI.Migrations
 
             modelBuilder.Entity("FestivalAPI.Models.Artiste", b =>
                 {
+                    b.HasOne("FestivalAPI.Models.Festival", "Festival")
+                        .WithMany("Artiste")
+                        .HasForeignKey("FestivalID");
+
                     b.HasOne("FestivalAPI.Models.Scene", "Scene")
                         .WithMany("Artistes")
                         .HasForeignKey("SceneID");
+                });
+
+            modelBuilder.Entity("FestivalAPI.Models.FestivalierAssignment", b =>
+                {
+                    b.HasOne("FestivalAPI.Models.Festival", "Festival")
+                        .WithMany("FestivalierAssignments")
+                        .HasForeignKey("FestivalID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FestivalAPI.Models.Festivalier", "Festivalier")
+                        .WithMany("FestivalierAssignments")
+                        .HasForeignKey("FestivalierID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("FestivalAPI.Models.Hebergement", b =>

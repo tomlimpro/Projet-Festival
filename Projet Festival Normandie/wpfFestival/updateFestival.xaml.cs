@@ -44,9 +44,9 @@ namespace wpfFestival
             nomfesti = LbFestivals.SelectedItem.ToString();
             var fest = API.Instance.GetFestival(nomfesti).Result;
             nomFestivalBox.Text = fest.Nom_Festival;
-            lieuFestivalBox.Text = fest.Ville;
-     
-            oldpictureBox.Source = new BitmapImage(new Uri(fest.Logo, UriKind.Absolute));
+            lieuFestivalbox.Text = fest.Ville;
+            string dest = @"C:\Users\tomli\source\repos\Projet Festival Normandie\FestivalWEB\wwwroot\festivalimage\" + fest.Logo;
+            oldpictureBox.Source = new BitmapImage(new Uri(dest, UriKind.Absolute));
             descriptionFestivalBox.Text = fest.Description;
            
 
@@ -56,7 +56,7 @@ namespace wpfFestival
         {
             var festi = API.Instance.GetFestival (nomfesti).Result;
             festi.Nom_Festival = nomFestivalBox.Text;
-            festi.Ville = lieuFestivalBox.Text;
+            festi.Ville = lieuFestivalbox.Text;
             festi.Description = descriptionFestivalBox.Text; 
             if(String.IsNullOrEmpty(pathlogoBox.Text))
             {
@@ -92,7 +92,11 @@ namespace wpfFestival
                     if ((checkStream = openFileDialog.OpenFile()) != null)
                     {
                         newpictureBox.Source = new BitmapImage(new Uri(openFileDialog.FileName, UriKind.Absolute));
-                        pathlogoBox.Text = openFileDialog.FileName;
+                        string source = openFileDialog.FileName;
+                        string dest = @"C:\Users\tomli\source\repos\Projet Festival Normandie\FestivalWEB\wwwroot\festivalimage\" + System.IO.Path.GetFileName(source);
+                        string namefile = System.IO.Path.GetFileName(source);
+                        File.Copy(source, dest);
+                        pathlogoBox.Text = namefile;
                         MessageBox.Show("L'image a bien été récupéré", "Enregistrement effecuté", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }

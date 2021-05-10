@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace FestivalAPI.Models
 {
-    public  class MinimumAgeAttribute : ValidationAttribute
+    public class MinimumAgeAttribute : ValidationAttribute
     {
-        int _minimumAge; 
+        int _minimumAge;
 
         public MinimumAgeAttribute(int minimumAge)
         {
@@ -14,8 +17,8 @@ namespace FestivalAPI.Models
 
         public override bool IsValid(object value)
         {
-            DateTime date; 
-            if(DateTime.TryParse(value.ToString(), out date))
+            DateTime date;
+            if (DateTime.TryParse(value.ToString(), out date))
             {
                 return date.AddYears(_minimumAge) < DateTime.Now;
             }

@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FestivalAPI", "FestivalAPI\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FestivalWEB", "FestivalWEB\FestivalWEB.csproj", "{D9E47918-3378-45B3-9D54-66240108D811}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "wpfFestival", "wpfFestival\wpfFestival.csproj", "{8A0E457F-B184-4B62-B00F-CE79CC3EE586}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wpfFestival", "wpfFestival\wpfFestival.csproj", "{8A0E457F-B184-4B62-B00F-CE79CC3EE586}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

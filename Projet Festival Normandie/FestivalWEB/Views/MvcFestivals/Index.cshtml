@@ -1,34 +1,163 @@
-﻿@model FestivalAPI.Models.FestivalData
+﻿@using System;
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@model FestivalAPI.Models.FestivalData
 
 @{
     ViewData["Title"] = "Index";
 }
+@if (HttpContextAccessor.HttpContext.Session.GetString("email") != null && HttpContextAccessor.HttpContext.Session.GetString("categorie").Equals("Festivalier") || HttpContextAccessor.HttpContext.Session.GetString("categorie") == null)
+{
 
-<p><br /></p>
-<p><br /></p>
-<p><br /></p>
-<h1>Index</h1>
+    <p><br /></p>
+    <p><br /></p>
+    <p><br /></p>
+    <h1>Liste des festivals des 3 prochains mois de cette année</h1>
+
+    <div class="row justify-content-center">
+
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" style="width: 500px;">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="/img/portfolio/cabin.png" alt="First slide">
+                </div>
+                @foreach (var fest in Model.Festi)
+                {
+                    DateTime year = DateTime.Now;
+                    DateTime month = DateTime.Now;
+                    int thisyear = year.Year;
+                    int threemonth = month.Month + 3;
+                    if (fest.DateDebut.Month < threemonth && fest.DateDebut.Year == thisyear)
+                    {
+                        <div class="carousel-item">
+                            <a asp-area="" asp-controller="MvcFestivals" asp-action="Details" asp-route-id="@fest.FestivalID"><img class="d-block w-100" src="~/festivalimage/@fest.Logo" alt="Third slide"></a>
+                        </div>
+                    }
+                }
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+    </div>
+
+    <hr />
+    <h2>Liste des festivals</h2>
+
+    <section class="page-section portfolio" id="portfolio">
+        <div class="container">
+            <div class="row justify-content-center">
+                @foreach (var festival in Model.Festi)
+                    {
+                        int idfesti = festival.FestivalID;
+                        int idtarif = idfesti;
+
+                    <div class="col-md-4">
+                        <div class="card" style=" height: auto; width : 300px;" data-toggle="modal" data-target="#modalfestival">
+                            <a class="infofesti" id="triggerfestival" data-id="@festival.FestivalID" data-hebergement="@foreach (var hebergement in festival.Hebergement)
+                    {
+                        @hebergement.LienHebergement <br />
+                    }"
+                               data-nom="@festival.Nom_Festival" data-commune="@festival.Ville" data-description="@festival.Description" 
+                               data-datedebut="@festival.DateDebut.Date.ToString("dd-MM-yyyy")" data-datefin="@festival.DateFin.ToString("dd-MM-yyyy")">
+                                <img class="card-img-top" style=" height: 270px; width :295px;" src="~/festivalimage/@festival.Logo" asp-append-version="true" alt="Card image cap">
+                            </a>
+                            <div class="card-body">
+
+                                <h5 class="card-title">@festival.Nom_Festival</h5>
+                                <p>Cliquez sur l'image pour lire la description.</p>
+                                <a class="btn btn-primary" onclick="location.href='@Url.Action("Details", "MvcFestivals", new { id = festival.FestivalID})'">Consulter le programme !</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    // modal
+
+                    <div class="modal fade" id="modalfestival" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Descrition</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <h2 class="nomfesti"></h2>
+                                    <br/>
+                                    <p class="descriptionfesti"></p>
+                                    <br/>
+                                    <p>Lieu :</p>
+                                    <p class="communefesti"></p>
+                                    <br/>
+                                    <p>Date debut :</p>
+                                    <p class="datedebut"></p>
+                                    <br/>
+                                    <p>Date fin :</p>
+                                    <p class="datefin"></p>
+                                    <br/>
+                                    <p>Lien d'hébergement :</p>
+                                    <p class="hebergement"></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Nom du festival</th>
-            <th>Ville</th>
-            <th>Date début</th>
-            <th>Date fin</th>
-            <th>Organisateurs</th>
-            <th>Scenes</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Festi)
-        {
-            string selectedRow = "";
-            if (item.FestivalID == (int?)ViewData["FestivalID"])
+                }
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+
+
+    </section>
+
+}
+
+@if (HttpContextAccessor.HttpContext.Session.GetString("email") != null && HttpContextAccessor.HttpContext.Session.GetString("categorie").Equals("Organisateur"))
+{
+    <p><br /></p>
+    <p><br /></p>
+    <p><br /></p>
+    <h1>Liste de tous les festivals</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom du festival</th>
+                <th>Ville</th>
+                <th>Date début</th>
+                <th>Date fin</th>
+                <th>Organisateurs</th>
+                <th>Scenes</th>
+                <th>Publication</th>
+                <th>Quantité de place</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Festi)
             {
-                selectedRow = "table-success";
-            }
+                string selectedRow = "";
+                if (item.FestivalID == (int?)ViewData["FestivalID"])
+                {
+                    selectedRow = "table-success";
+                }
             <tr class="@selectedRow">
 
                 <td>
@@ -52,53 +181,25 @@
                 <td>
                     @foreach (var scene in item.Scene)
                     {
-                        @scene.Nom_Scene
+                        @scene.Nom_Scene<br />
                     }
                 </td>
 
                 <td>
-                    <a asp-action="Index" asp-route-id="@item.FestivalID">Select</a> |
-                    <a asp-action="Edit" asp-route-id="@item.FestivalID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.FestivalID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.FestivalID">Delete</a>
+                    @Html.DisplayFor(modelItem => item.Publier)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuantitePlace)
+                </td>
+                <td>
+                    <a asp-action="Index" asp-route-id="@item.FestivalID">Afficher</a> |
+                    <a asp-action="Edit" asp-route-id="@item.FestivalID">Modifier</a> |
+                    <a asp-action="Details" asp-route-id="@item.FestivalID">Afficher les détails</a> |
+                    <a asp-action="Delete" asp-route-id="@item.FestivalID">Supprimer ce festival</a>
                 </td>
             </tr>
-        }
-    </tbody>
-</table>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-@if (Model.Scenes != null)
-{
-    <h3>Liste des scènes avec les artistes</h3>
-    <table class="table">
-        <tr>
-            <th></th>
-            <th>Nom de la scène</th>
-            <th>Artistes</th>
-        </tr>
-        @foreach (var item in Model.Scenes)
-        {
-            string selectedRow = "";
-            if (item.SceneID == (int?)ViewData["SceneID"])
-            {
-                selectedRow = "success";
             }
-            <tr class="@selectedRow">
-                <td>
-                    @Html.ActionLink("Select", "Index", new { sceneID = item.SceneID })
-                </td>
-                <td>
-                    @item.Nom_Scene
-                </td>
-                <td>
-                    @foreach (var artiste in item.Artistes)
-                    {
-                        @artiste.Nom_Artiste
-                    }
-                </td>
-            </tr>
-        }
+        </tbody>
     </table>
+
 }

@@ -23,7 +23,7 @@ namespace FestivalWEB.Controllers
         public async Task<IActionResult> Index()
         {
             var festivalAPIContext = _context.Tarifs.Include(t => t.Festival);
-            return View(await festivalAPIContext.ToListAsync());
+            return View(await festivalAPIContext.OrderBy(i => i.Festival.Nom_Festival).ToListAsync());
         }
 
         // GET: MvcTarifs/Details/5
@@ -33,7 +33,7 @@ namespace FestivalWEB.Controllers
             {
                 return NotFound();
             }
-
+          
             var tarif = await _context.Tarifs
                 .Include(t => t.Festival)
                 .AsNoTracking()
@@ -58,7 +58,7 @@ namespace FestivalWEB.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TarifID,NomTarif,PrixTarif,FestivalID")] Tarif tarif)
+        public async Task<IActionResult> Create([Bind("TarifID,NomTarif,PrixTarif,QuantiteTotal,DescriptionTarif,FestivalID")] Tarif tarif)
         {
             if (ModelState.IsValid)
             {
@@ -107,7 +107,7 @@ namespace FestivalWEB.Controllers
 
             if (await TryUpdateModelAsync<Tarif>(tarifToUpdate,
                 "",
-                c => c.NomTarif, c => c.PrixTarif, c => c.FestivalID))
+                c => c.NomTarif, c => c.PrixTarif,c => c.QuantiteTotal, c => c.DescriptionTarif, c => c.FestivalID))
             {
                 try
                 {
@@ -123,6 +123,63 @@ namespace FestivalWEB.Controllers
                 }
             }
             PopulateFestivalsDropDownList(tarifToUpdate.FestivalID);
+            return View(tarifToUpdate);
+        }
+
+
+        public async Task<IActionResult> Pagetarif(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var tarif = await _context.Tarifs
+                .Include(m => m.Festival)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.TarifID == id);
+
+            if (tarif == null)
+            {
+                return NotFound();
+            }
+            
+            return View(tarif);
+        }
+
+
+        [HttpPost, ActionName("Pagetarif")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Pagetarifpost(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var tarifToUpdate = await _context.Tarifs
+                .Include(c => c.Festival)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(c => c.TarifID == id);
+
+            if (await TryUpdateModelAsync<Tarif>(tarifToUpdate,
+                "",
+                c => c.QuantiteTotal))
+            {
+                try
+                {
+                    await _context.SaveChangesAsync();
+                    return Redirect("/MvcFestivals/Index");
+                }
+                catch (DbUpdateException /* ex */)
+                {
+                    //Log the error (uncomment ex variable name and write a log.)
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                        "Try again, and if the problem persists, " +
+                        "see your system administrator.");
+                }
+            }
+            
             return View(tarifToUpdate);
         }
 

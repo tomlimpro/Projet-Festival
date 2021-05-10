@@ -35,6 +35,5 @@
             </Button.Background>
 
         </Button>
-        <Button Content="Deconnexion" HorizontalAlignment="Left" Height="30" Margin="653,10,0,0" VerticalAlignment="Top" Width="109" Click="Button_Click_1"/>
     </Grid>
 </Page>

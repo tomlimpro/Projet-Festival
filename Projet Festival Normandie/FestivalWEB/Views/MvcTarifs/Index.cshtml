@@ -6,10 +6,10 @@
 <p><br /></p>
 <p><br /></p>
 <p><br /></p>
-<h1>Index</h1>
+<h1>Liste des tarifs</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Créer un tarif</a>
 </p>
 <table class="table">
     <thead>
@@ -21,6 +21,12 @@
                 @Html.DisplayNameFor(model => model.PrixTarif)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.DescriptionTarif)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuantiteTotal)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Festival)
             </th>
             <th></th>
@@ -29,25 +35,29 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NomTarif)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PrixTarif)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Festival.Nom_Festival)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.TarifID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.TarifID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.TarifID">Delete</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomTarif)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrixTarif)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescriptionTarif)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantiteTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Festival.Nom_Festival)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TarifID">Modifier ce tarif</a> |
+                <a asp-action="Details" asp-route-id="@item.TarifID">En savoir plus.</a> |
+                <a asp-action="Delete" asp-route-id="@item.TarifID">Supprimer un tarif</a>
+            </td>
+        </tr>
         }
     </tbody>
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
+    
 </table>

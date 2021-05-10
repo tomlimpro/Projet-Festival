@@ -1,15 +1,17 @@
 ﻿@model FestivalAPI.Models.Tarif
-
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 @{
     ViewData["Title"] = "Details";
 }
+
 <p><br /></p>
 <p><br /></p>
 <p><br /></p>
-<h1>Details</h1>
+<h1>Modifier ce tarif</h1>
 
 <div>
-    <h4>Tarif</h4>
+
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -33,6 +35,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.TarifID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.TarifID">Modifier ce tarif</a> |
+    <a asp-action="Index">Retour à la liste.</a>
 </div>

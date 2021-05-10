@@ -1,73 +1,43 @@
-﻿@model IEnumerable<FestivalAPI.Models.Artiste>
+﻿
+@model IEnumerable<FestivalAPI.Models.Artiste>
 
-@{
-    ViewData["Title"] = "Index";
-}
-<p><br /></p>
-<p><br /></p>
-<p><br /></p>
-<h1>Artistes</h1>
+<h4 class="text-center text-uppercase">Liste des artistes</h4>
 
 <p>
-    <a asp-action="Create">Ajouter un artiste</a>
+    <a asp-action="Create" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Cliquez ici pour ajouter un artiste</a>
 </p>
-<table class="table">
+<table class="table table-bordered">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nom_Artiste)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Style_Artiste)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descriptif_Artiste)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pays_Artiste)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ExtraitMusical_Artiste)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UrlImage)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Scene)
-            </th>
-            <th></th>
+            <th>@Html.DisplayNameFor(model => model.Nom_Artiste)</th>
+            <th>@Html.DisplayNameFor(model => model.Style_Artiste)</th>
+            <th>@Html.DisplayNameFor(model => model.Descriptif_Artiste)</th>
+            <th>@Html.DisplayNameFor(model => model.Pays_Artiste)</th>
+            <th>@Html.DisplayNameFor(model => model.SceneID)</th>
+            
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nom_Artiste)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Style_Artiste)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descriptif_Artiste)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pays_Artiste)
-            </td>
-            <td>
-                <a href="@Html.DisplayFor(modelItem => item.ExtraitMusical_Artiste)">Extrait</a>
-            </td>
-            <td>
-                <a href="@Html.DisplayFor(modelItem => item.UrlImage)">UrlImage</a>
-            </td>
-            <td>
-                <a href="@Html.DisplayFor(modelItem => item.SceneID)">Extrait</a>
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ArtisteID">Modifié</a> |
-                <a asp-action="Details" asp-route-id="@item.ArtisteID">Détails</a> |
-                <a asp-action="Delete" asp-route-id="@item.ArtisteID">Supprimer</a>
-            </td>
-        </tr>
-}
+        @foreach (var artiste in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/images/@artiste.UrlImage"
+                         class="rounded-circle"
+                         height="40" width="40"
+                         asp-append-version="true" />
+                    @artiste.Nom_Artiste
+                </td>
+                <td>@artiste.Style_Artiste</td>
+                <td>@artiste.Descriptif_Artiste</td>
+                <td>@artiste.Pays_Artiste</td>
+                <td>@artiste.SceneID</td>
+                <td><a asp-action="Delete" asp-route-id="@artiste.ArtisteID">Supprimer l'artiste</a></td>
+               
+            </tr>
+
+        }
     </tbody>
 </table>
+
+ 

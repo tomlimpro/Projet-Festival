@@ -6,8 +6,10 @@
 <p><br /></p>
 <p><br /></p>
 <p><br /></p>
-<h1>Index</h1>
-
+<h1>Créer une scène</h1>
+<p>
+    <a asp-action="Create">Créer une scène</a>
+</p>
 
 <table class="table">
     <thead>
@@ -46,15 +48,12 @@
                 </td>
 
                 <td>
-                    <a asp-action="Index" asp-route-id="@item.FestivalID">Select</a> |
-                    <a asp-action="Edit" asp-route-id="@item.FestivalID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.FestivalID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.FestivalID">Delete</a>
+                   
+                    <a asp-action="Edit" asp-route-id="@item.FestivalID">Modifier cette scène</a> |
+                    <a asp-action="Details" asp-route-id="@item.FestivalID">En savoir plus.</a> |
+                    <a asp-action="Delete" asp-route-id="@item.FestivalID">Supprimer</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>

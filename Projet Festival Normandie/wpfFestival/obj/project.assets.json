@@ -9011,19 +9011,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\emili\\.nuget\\packages\\": {}
+    "C:\\Users\\tomli\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Normandie\\Projet Festival Normandie\\wpfFestival\\wpfFestival.csproj",
+      "projectUniqueName": "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\wpfFestival\\wpfFestival.csproj",
       "projectName": "wpfFestival",
-      "projectPath": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Normandie\\Projet Festival Normandie\\wpfFestival\\wpfFestival.csproj",
-      "packagesPath": "C:\\Users\\emili\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Normandie\\Projet Festival Normandie\\wpfFestival\\obj\\",
+      "projectPath": "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\wpfFestival\\wpfFestival.csproj",
+      "packagesPath": "C:\\Users\\tomli\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\wpfFestival\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\emili\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tomli\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9037,8 +9037,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Normandie\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj": {
-              "projectPath": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Normandie\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj"
+            "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj": {
+              "projectPath": "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\FestivalAPI\\FestivalAPI.csproj"
             }
           }
         }
@@ -9082,13 +9082,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problème de lecture du fichier cache C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Normandie\\Projet Festival Normandie\\wpfFestival\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

@@ -16,7 +16,7 @@ namespace FestivalAPI.Models
         public string Prenom { get; set; }
 
         [Required, MinLength(8)]
-        [Display(Name = "Mot de passe" )]
+        [Display(Name = "Mot de passe")]
         public string Mot_de_passe { get; set; }
 
         [Required]
@@ -25,8 +25,8 @@ namespace FestivalAPI.Models
 
         public string Genre { get; set; }
 
-        [MinLength(10),MaxLength(10)]
-        public  string Telephone { get; set; }
+        [MinLength(10), MaxLength(10)]
+        public string Telephone { get; set; }
 
         [Display(Name = "Code postal")]
         public int Code_postal { get; set; }
@@ -39,7 +39,7 @@ namespace FestivalAPI.Models
         public DateTime Date_de_naissance { get; set; }
 
         public bool EmailConfirme { get; set; }
-
-
+        public ICollection<FestivalierAssignment> FestivalierAssignments { get; set; }
+        
     }
 }

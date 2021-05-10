@@ -13,7 +13,8 @@ namespace FestivalAPI.Models
         [Required]
         public string NomTarif { get; set; } // Plein Tarif ou Demi Tarif
         public int PrixTarif { get; set; }
-
+        public int QuantiteTotal { get; set;  }
+        public string DescriptionTarif { get; set; }
         // Un Tarif peut être attribué à un festival ou non. 
         //La propriété FestivalID est incluse en tant que clé étrangère à l'entité Festival. Un point d'interrogation pour marquer la propriété comme nullable.
         public int? FestivalID { get; set; }

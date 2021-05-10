@@ -22,7 +22,8 @@ namespace FestivalAPI.Models
         public string Pays_Artiste { get; set; }
         [DisplayName("Extrait musical")]
         public string ExtraitMusical_Artiste { get; set; }
-
+        public int? FestivalID { get; set; }
+        public Festival Festival { get; set; }
         public int? SceneID { get; set; }
         public Scene Scene { get; set; }
         public string UrlImage { get; set; }

@@ -61,7 +61,7 @@ namespace wpfFestival {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/wpfFestival;V1.0.0.0;component/deleteorganisateur.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/wpfFestival;component/deleteorganisateur.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\deleteOrganisateur.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
