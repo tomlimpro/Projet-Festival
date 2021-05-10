@@ -6,6 +6,9 @@
 @{
     ViewData["Title"] = "Index";
 }
+
+<!---Lorsqu'on se connecte en tant qu'organisateur, on affiche cette index -->
+
 @if (HttpContextAccessor.HttpContext.Session.GetString("email") != null && HttpContextAccessor.HttpContext.Session.GetString("categorie").Equals("Festivalier") || HttpContextAccessor.HttpContext.Session.GetString("categorie") == null)
 {
 
@@ -21,6 +24,10 @@
                 <div class="carousel-item active">
                     <img class="d-block w-100" src="/img/portfolio/cabin.png" alt="First slide">
                 </div>
+
+                <!-- Un exemple d'utilisation pour afficher en fonction des dates 
+                    Ici, je souhaite afficher les festivals qui sont à venir dans les 3 prochains mois
+                -->
                 @foreach (var fest in Model.Festi)
                 {
                     DateTime year = DateTime.Now;
@@ -58,6 +65,10 @@
                         int idfesti = festival.FestivalID;
                         int idtarif = idfesti;
 
+                    <!-- Ici, les data-nom data-commune data-description etc permettront de récupérer les valeurs du festivals lorsqu'on clique sur la carte
+                        Redirigez-vous vers le footer pour avoir le script du javascript qui permet de récupérer les valeurs et les envoyer vers le modal
+                        -->
+
                     <div class="col-md-4">
                         <div class="card" style=" height: auto; width : 300px;" data-toggle="modal" data-target="#modalfestival">
                             <a class="infofesti" id="triggerfestival" data-id="@festival.FestivalID" data-hebergement="@foreach (var hebergement in festival.Hebergement)
@@ -78,7 +89,7 @@
                         </div>
                     </div>
 
-                    // modal
+                    // modal pour afficher les informations du festival
 
                     <div class="modal fade" id="modalfestival" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -89,6 +100,9 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
+                                <!-- Chaque nom de class est utilisé dans le script javascript, voir dans la footer
+
+                                -->
                                 <div class="modal-body">
                                     <h2 class="nomfesti"></h2>
                                     <br/>
@@ -130,6 +144,8 @@
     </section>
 
 }
+
+<!--- Lorsqu'on se connecte en tant que festivalier, on affiche cette index -->
 
 @if (HttpContextAccessor.HttpContext.Session.GetString("email") != null && HttpContextAccessor.HttpContext.Session.GetString("categorie").Equals("Organisateur"))
 {
