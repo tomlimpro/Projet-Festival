@@ -38,6 +38,8 @@
         </button>
         <form class="form-inline" action="#">
 
+            <!---Lorsqu'on se connecte en tant qu'Organisateur, on a les boutons deco & mon festival qui apparaissent--->
+
             @if (HttpContextAccessor.HttpContext.Session.GetString("email") != null && HttpContextAccessor.HttpContext.Session.GetString("categorie").Equals("Organisateur"))
             {
                 Organisateur organisateur = API.Instance.GetOrganisateur(HttpContextAccessor.HttpContext.Session.GetString("email")).Result;
@@ -47,6 +49,8 @@
                 <button type="button" onclick="location.href='@Url.Action("Deconnection", "Login")'" class="btn btn-outline-danger">Se deconnecter</button>
             }
 
+            <!--- Lorsqu'on se connecte en tant que Festivalier, les boutons Accueil et Déconnexion apparaissent -->
+
             @if (HttpContextAccessor.HttpContext.Session.GetString("email") != null && HttpContextAccessor.HttpContext.Session.GetString("categorie").Equals("Festivalier"))
             {
                 Festivalier Festivalier = API.Instance.GetFestivalier(HttpContextAccessor.HttpContext.Session.GetString("email")).Result;
@@ -55,6 +59,7 @@
                 <button type="button" onclick="location.href='@Url.Action("Index", "Home")'" class="btn btn-outline-danger">Accueil</button>
                 <button type="button" onclick="location.href='@Url.Action("Deconnection", "Login")'" class="btn btn-outline-danger">Se deconnecter</button>
             }
+            <!--- En tant que visiteur, on a les boutons se connecter et inscription qui apparaissent -->
             @if (HttpContextAccessor.HttpContext.Session.GetString("email") == null)
             {
                 <button type="button" onclick="location.href='@Url.Action("Index", "Login")'" class="btn btn-outline-danger mr-2">Se connecter</button>
@@ -76,38 +81,3 @@
 </nav>
 
 
-<!-- Modal Inscription -->
-<div class="modal fade" id="modalinscription" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Inscription</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-
-                <form action="" method="post">
-                    <div class="form-group">
-                        <label for="email">Adresse e-mail:</label>
-                        <input type="email" class="form-control" placeholder="Entrez votre email" name="email1" id="email1">
-                    </div>
-                    <div class="form-group">
-                        <label for="pseudo">Pseudo :</label>
-                        <input type="name" class="form-control" placeholder="Entrez votre pseudo" name="pseudo1" id="pseudo1">
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Mot de passe:</label>
-                        <input type="password" class="form-control" placeholder="Entrez votre mot de passe" name="mdp1" id="mdp1">
-                    </div>
-                    <button type="submit" name="forminscription" class="btn btn-primary">S'inscrire</button>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <label for="pwd">Déjà inscrit ? <button type="button" class="btn btn-outline-danger mr-sm-5" data-toggle="modal" data-dismiss="modal" data-target="#modalconnection">Se connecter</button></label>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-            </div>
-        </div>
-    </div>
-</div>

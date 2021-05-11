@@ -1,0 +1,44 @@
+Salut c'est Tom, je te propose une petite aide pour bien récupérer la totalité du projet.
+
+Après avoir effectué le pull, assure toi de bien récupérer la base de donnée à check dans l'explorateur de serveur ou
+Explorateur d'objets SQL server.
+
+Je te conseille de supprimer toutes les tables de la base de donnée.
+Vérifie bien dans FestivalAPI/Data/FestivalAPIContext que tous les models soient présents.
+
+Ensuite, tu iras dans l'onglet Outils -> Gestionnaire de package NuGet -> Console Gestionnaire du package.
+A ce stade, on va effectuer une mise à jour de notre base de donnée, càd recréer les tables de nos modèles.
+Les commandes sont : 
+
+1. add-migration
+2. tu insères un nom
+Le dossier migration est crée puis tu trouveras un fichier .cs avec la création de toutes tes tables. 
+3. update-database
+
+( si jamais tu supprimes une table, tu peux refaire une add-migration et normalement tu verras seulement une création d'une table dans ton fichier .cs)
+
+Check si tu as bien récupéré les tables.
+
+Sur Postman, effectue des tests pour voir si tu récupères bien [] pour chaque table.
+
+------------------------------------------------------------------------------------------------------------------
+
+Dirige toi dans wpffestival/addfestivals.CS
+puis private void button_click
+-> string dest = @" insère le chemin qui permet d'aller vers wwwroot\festivalimage\" tu y trouveras un exemple directement sur le doc
+Si tu trouves une méthode pour envoyer directement vers ce dossier festivalimage, je serais ravie de savoir.
+
+------------------------------------------------------------------------------------------------------------------
+
+Dirige toi vers MvcFestivaliersController
+private void BuildEmailTemplate
+
+var url = " indique ton localhost web" 
+
+------------------------------------------------------------------------------------------------------------------
+
+Pour effectuer les tests, 
+crée toi d'abord un gestionnaire sur POSTMAN
+puis crée toi un organisateur puis un festival sur l'application.
+
+
