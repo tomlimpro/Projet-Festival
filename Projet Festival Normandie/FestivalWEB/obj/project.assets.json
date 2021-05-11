@@ -9331,19 +9331,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tomli\\.nuget\\packages\\": {}
+    "C:\\Users\\emili\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\FestivalWEB\\FestivalWEB.csproj",
+      "projectUniqueName": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Valide\\Projet Festival Normandie\\FestivalWEB\\FestivalWEB.csproj",
       "projectName": "FestivalWEB",
-      "projectPath": "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\FestivalWEB\\FestivalWEB.csproj",
-      "packagesPath": "C:\\Users\\tomli\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\FestivalWEB\\obj\\",
+      "projectPath": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Valide\\Projet Festival Normandie\\FestivalWEB\\FestivalWEB.csproj",
+      "packagesPath": "C:\\Users\\emili\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Valide\\Projet Festival Normandie\\FestivalWEB\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\tomli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\emili\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9357,8 +9357,8 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\wpfFestival\\wpfFestival.csproj": {
-              "projectPath": "C:\\Users\\tomli\\source\\repos\\Projet Festival Normandie\\wpfFestival\\wpfFestival.csproj"
+            "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Valide\\Projet Festival Normandie\\wpfFestival\\wpfFestival.csproj": {
+              "projectPath": "C:\\Users\\emili\\source\\repos\\Projet-Festival\\Projet-Festival-Valide\\Projet Festival Normandie\\wpfFestival\\wpfFestival.csproj"
             }
           }
         }

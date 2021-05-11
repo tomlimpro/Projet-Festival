@@ -144,7 +144,7 @@ namespace FestivalAPI.Migrations
 
                     b.HasKey("IdUser");
 
-                    b.ToTable("Festivaliers");
+                    b.ToTable("Festivalier");
                 });
 
             modelBuilder.Entity("FestivalAPI.Models.FestivalierAssignment", b =>

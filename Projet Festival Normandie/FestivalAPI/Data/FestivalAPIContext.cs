@@ -37,6 +37,7 @@ namespace FestivalAPI.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Festival>().ToTable("Festival");
+            modelBuilder.Entity<Festivalier>().ToTable("Festivalier");
             modelBuilder.Entity<Organisateur>().ToTable("Organisateur");
             modelBuilder.Entity<Artiste>().ToTable("Artiste");
             modelBuilder.Entity<Tarif>().ToTable("Tarif");

@@ -28,34 +28,6 @@ namespace FestivalAPI.Controllers
             return await _context.Festivaliers.ToListAsync();
         }
 
-        [HttpGet("GetFestivalierOrganisateur/{Email}")]
-        public async Task<ActionResult<Festivalier>> GetEmailFestivalier(string email)
-        {
-            var orga = await _context.Festivaliers.FirstOrDefaultAsync(o => o.Email.Equals(email));
-            if (orga == null)
-            {
-                return NotFound();
-            }
-            return orga;
-
-
-        }
-
-        [HttpGet("GetLoginFestivalier/{Email}/{Mot_de_passe}")]
-        public async Task<ActionResult<Festivalier>> GetLoginFestivalier(string email, string mot_de_passe)
-        {
-            var user = await _context.Festivaliers.FirstOrDefaultAsync(u => u.Email.Equals(email) && u.Mot_de_passe.Equals(mot_de_passe));
-
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-
-
-            return user;
-        }
-
         // GET: api/Festivaliers/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Festivalier>> GetFestivalier(int id)
@@ -134,5 +106,24 @@ namespace FestivalAPI.Controllers
         {
             return _context.Festivaliers.Any(e => e.IdUser == id);
         }
+        [HttpGet("GetLoginFestivalier/{Email}/{Mot_de_passe}")]
+        public async Task<ActionResult<Festivalier>> GetLoginFestivalier(string email, string mot_de_passe)
+        {
+            var user = await _context.Festivaliers.FirstOrDefaultAsync(u => u.Email.Equals(email) && u.Mot_de_passe.Equals(mot_de_passe));
+
+
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+
+
+
+
+            return user;
+        }
+
     }
 }

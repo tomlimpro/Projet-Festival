@@ -159,7 +159,7 @@ namespace FestivalWEB.Controllers
         private void BuildEmailTemplate(int idUser, string email)
         {
             string body = System.IO.File.ReadAllText("EmailTemplate/MailTemplate.cshtml");
-            var url = "http://localhost:64356/" + "Register/Confirm?regId=" + idUser;
+            var url = "http://localhost:64356" + "Register/Confirm?regId=" + idUser;
 
             var mail = email;
             BuilEmailTemplate1("Votre compte a été créé avec succès", body, mail);
