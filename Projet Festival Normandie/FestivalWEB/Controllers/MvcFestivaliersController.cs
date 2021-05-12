@@ -16,6 +16,8 @@ namespace FestivalWEB.Controllers
     {
         private readonly FestivalAPIContext _context;
 
+        public string email { get; private set; }
+
         public MvcFestivaliersController(FestivalAPIContext context)
         {
             _context = context;
@@ -160,9 +162,8 @@ namespace FestivalWEB.Controllers
         {
             string body = System.IO.File.ReadAllText("EmailTemplate/MailTemplate.cshtml");
             var url = "http://localhost:64356" + "Register/Confirm?regId=" + idUser;
-
-            var mail = email;
-            BuilEmailTemplate1("Votre compte a été créé avec succès", body, mail);
+            this.email = email;
+            BuilEmailTemplate1("Votre compte a été créé avec succès", body, email);
         }
 
 

@@ -7,13 +7,23 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FestivalAPI.Data;
 using FestivalAPI.Models;
+using System.Text;
+using System.Net.Mail;
+using Microsoft.AspNetCore.Http;
+using FestivalAPI.Controllers;
+
 
 namespace FestivalWEB.Controllers
 {
     public class MvcTarifsController : Controller
     {
         private readonly FestivalAPIContext _context;
+        
 
+        public string email { get; private set; }
+        public string nom { get; private set; }
+        public string prenom { get; private set; }
+        public DateTime date_de_naissance { get; private set; }
         public MvcTarifsController(FestivalAPIContext context)
         {
             _context = context;
@@ -155,6 +165,7 @@ namespace FestivalWEB.Controllers
             if (id == null)
             {
                 return NotFound();
+                
             }
 
             var tarifToUpdate = await _context.Tarifs
@@ -209,7 +220,80 @@ namespace FestivalWEB.Controllers
 
             return View(tarif);
         }
+        //GET userinformation
+        public async Task<IActionResult> Acheter()
+        {
 
+            var email = HttpContext.Session.GetString("email");           
+            
+            var festivalier = await _context.Festivaliers
+               .FirstOrDefaultAsync(m => m.Email == email);
+            BuildEmailTemplate(festivalier.IdUser,festivalier.Email,festivalier.Nom,festivalier.Prenom,festivalier.Date_de_naissance);
+            
+            return View("../Home/Index");
+        }
+
+        // Construction et envoie de l'email récapitulatif 
+        private void BuildEmailTemplate(int idUser, string email, string nom, string prenom, DateTime date_de_naissance)
+        {
+            // envoyer les infos à la page 
+            string body = System.IO.File.ReadAllText("EmailTemplate/MailTemplateTarif.cshtml");
+            //var url = "http://localhost:64356" + "Register/Confirm?regId=" + idUser;
+            this.email = email;
+            this.nom = nom;
+            this.prenom = prenom;
+            this.date_de_naissance = date_de_naissance;
+                        
+            BuilEmailTemplate1("Récapitulatif de vos achats", body, email);
+        }
+
+
+        public static void BuilEmailTemplate1(string subjectText, string bodyText, string sendTo)
+        {
+            string from, to, bcc, cc, subject, body;
+            from = "FestivalNormandie@outlook.com";
+            to = sendTo.Trim();
+            bcc = "";
+            cc = "";
+            subject = subjectText;
+            StringBuilder sb = new StringBuilder();
+            sb.Append(bodyText);
+            body = sb.ToString();
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress(from);
+            mail.To.Add(new MailAddress(to));
+            if (!string.IsNullOrEmpty(bcc))
+            {
+                mail.Bcc.Add(new MailAddress(bcc));
+            }
+            if (!string.IsNullOrEmpty(cc))
+            {
+                mail.CC.Add(new MailAddress(cc));
+            }
+            mail.Subject = subject;
+            mail.Body = body;
+            mail.IsBodyHtml = true;
+            SendEmail(mail);
+        }
+
+        public static void SendEmail(MailMessage mail)
+        {
+            SmtpClient client = new SmtpClient();
+            client.Host = "smtp-mail.outlook.com";
+            client.Port = 587;
+            client.EnableSsl = true;
+            client.UseDefaultCredentials = false;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.Credentials = new System.Net.NetworkCredential("FestivalNormandie@outlook.com", "ProjetFestival04/05");
+            try
+            {
+                client.Send(mail);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         // POST: MvcTarifs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -225,5 +309,8 @@ namespace FestivalWEB.Controllers
         {
             return _context.Tarifs.Any(e => e.TarifID == id);
         }
+
+
+
     }
 }
