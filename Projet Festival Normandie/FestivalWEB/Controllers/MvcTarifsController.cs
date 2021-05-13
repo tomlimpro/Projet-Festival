@@ -11,7 +11,8 @@ using System.Text;
 using System.Net.Mail;
 using Microsoft.AspNetCore.Http;
 using FestivalAPI.Controllers;
-
+using MimeKit;
+using System.IO;
 
 namespace FestivalWEB.Controllers
 {
@@ -225,25 +226,30 @@ namespace FestivalWEB.Controllers
         {
 
             var email = HttpContext.Session.GetString("email");           
-            
             var festivalier = await _context.Festivaliers
                .FirstOrDefaultAsync(m => m.Email == email);
-            BuildEmailTemplate(festivalier.IdUser,festivalier.Email,festivalier.Nom,festivalier.Prenom,festivalier.Date_de_naissance);
+            BuildEmailTemplate(festivalier.IdUser,festivalier.Email,festivalier.Nom, festivalier.Prenom, festivalier.Date_de_naissance);
             
+
             return View("../Home/Index");
         }
 
         // Construction et envoie de l'email récapitulatif 
-        private void BuildEmailTemplate(int idUser, string email, string nom, string prenom, DateTime date_de_naissance)
+        private void BuildEmailTemplate(int idUser, string email,string nom,string prenom, DateTime date_de_naissance)
         {
-            // envoyer les infos à la page 
-            string body = System.IO.File.ReadAllText("EmailTemplate/MailTemplateTarif.cshtml");
-            //var url = "http://localhost:64356" + "Register/Confirm?regId=" + idUser;
             this.email = email;
             this.nom = nom;
             this.prenom = prenom;
             this.date_de_naissance = date_de_naissance;
-                        
+            var builder = new BodyBuilder();
+            using (StreamReader SourceReader = System.IO.File.OpenText("EmailTemplate/MailTemplateTarif.html"))
+            {
+                builder.HtmlBody = SourceReader.ReadToEnd();
+            }
+            string body = string.Format(builder.HtmlBody,
+                                         nom,
+                                         prenom,
+                                         date_de_naissance);
             BuilEmailTemplate1("Récapitulatif de vos achats", body, email);
         }
 
